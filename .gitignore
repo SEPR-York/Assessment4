@@ -1,5 +1,7 @@
 /gradle/**
 **/.settings/**
+**/.classpath
+**/.project
 
 ## Java
 *.class
