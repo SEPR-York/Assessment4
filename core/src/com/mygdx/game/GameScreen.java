@@ -1083,8 +1083,6 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     IAnimation lastTileClickedFlash;
     IAnimation playerWin;
 
-	private boolean activeTrade;
-
 	private Trade currentTrade;
 
     /**

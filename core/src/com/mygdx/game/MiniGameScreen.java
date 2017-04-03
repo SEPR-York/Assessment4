@@ -1,6 +1,5 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -19,8 +18,6 @@ import io.github.teamfractal.screens.AbstractAnimationScreen;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static com.badlogic.gdx.math.MathUtils.random;
 
 
 //new class for assessment 3
@@ -52,8 +49,6 @@ public class MiniGameScreen extends AbstractAnimationScreen implements Screen {
     private ImageButton button2;
     private ImageButton button3;
     private Table table;
-    private int width;
-    private int high;
     private Stage stage;
     Random rnd = new Random();
 
@@ -65,9 +60,6 @@ public class MiniGameScreen extends AbstractAnimationScreen implements Screen {
         stage = new Stage();
         this.table = new Table();
         table.setFillParent(true);
-
-        this.width = width;
-        this.high = high;
 
         button1 = new ImageButton(cardTexture);
         button2 = new ImageButton(cardTexture);

@@ -64,10 +64,6 @@ public class Tile extends Button {
      */
     private int OreCount;
     /**
-     * A modifier influencing how much ore is produced.
-     */
-    private boolean landmark;
-    /**
      * The player that owns the tile, if it has one.
      */
     private Player owner;
@@ -146,9 +142,6 @@ public class Tile extends Button {
         this.FoodCount = FoodCount;
         this.OreCount = OreCount;
         //Import and save the tile's determined resource yields
-
-        this.landmark = landmark;
-        //Import and save the tile's landmark status
 
         this.runnable = runnable;
         this.owner = null;

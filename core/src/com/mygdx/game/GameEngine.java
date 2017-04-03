@@ -49,11 +49,6 @@ public class GameEngine {
     private int phase;
 
     /**
-     * Defines whether or not a tile has been acquired in the current phase of the game
-     */
-    private boolean tileAcquired;
-
-    /**
      * Timer used to dictate the pace and flow of the game
      * This has a visual interface which will be displayed in the top-left corner of the game-screen
      */
@@ -213,8 +208,7 @@ public class GameEngine {
         market.refreshButtonAvailability();
         switch (phase) {
             case 1:
-                tileAcquired = false;
-                drawer.toggleButton(gameScreen.endTurnButton(), false, Color.GRAY);
+			drawer.toggleButton(gameScreen.endTurnButton(), false, Color.GRAY);
                 market.produceRoboticon();
                 break;
 
@@ -431,9 +425,6 @@ public class GameEngine {
 
             selectedTile.setOwner(players[currentPlayerID]);
             //Set the owner of the currently selected tile to be the current player
-
-            tileAcquired = true;
-            //Mark that a tile has been acquired on this turn
 
             switch (players[currentPlayerID].getCollege().getID()) {
                 case 0:

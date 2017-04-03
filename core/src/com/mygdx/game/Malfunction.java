@@ -1,7 +1,6 @@
 package com.mygdx.game;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 // This class was implemented during Assessment 3.

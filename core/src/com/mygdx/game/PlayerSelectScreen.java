@@ -14,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 /**
  * New Class for Assessment 3, allows user to slect the number of players
@@ -47,16 +46,6 @@ public class PlayerSelectScreen implements Screen {
      * Establishes the font which is used to encode the menu's options
      */
     private TTFont menuFont;
-
-    /**
-     * Establishes the font which is used to encode the game's title
-     */
-    private TTFont titleFont;
-
-    /**
-     * Establishes the font which, at the moment, encodes a "Title TBC" message
-     */
-    private TTFont tempFont;
 
     /**
      * Object defining QOL drawing functions for rectangles and on-screen tables
@@ -162,10 +151,9 @@ public class PlayerSelectScreen implements Screen {
         
         
 
-        titleFont = new TTFont(Gdx.files.internal("font/earthorbiterxtrabold.ttf"), 120, 2, Color.BLACK, false);
+        new TTFont(Gdx.files.internal("font/earthorbiterxtrabold.ttf"), 120, 2, Color.BLACK, false);
         menuFont = new TTFont(Gdx.files.internal("font/enterthegrid.ttf"), 36, 2, Color.BLACK, false);
-        tempFont = new TTFont(Gdx.files.internal("font/earthorbiter.ttf"), 24, 2, Color.BLACK, false);
-        //Initialise menu font
+        new TTFont(Gdx.files.internal("font/earthorbiter.ttf"), 24, 2, Color.BLACK, false);
 
         Gdx.input.setInputProcessor(stage);
         //Set the stage up to accept user inputs

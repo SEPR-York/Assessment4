@@ -11,11 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 public class Overlay extends Stage {
 
     /**
-     * Stores current game-state, granting direct render access to the class
-     */
-    private Game game;
-
-    /**
      * Table providing spatial framework for the overlay
      */
     private Table table;
@@ -66,9 +61,6 @@ public class Overlay extends Stage {
     public Overlay(Game game, Color fillColor, Color lineColour, float regionWidth, float regionHeight, int lineThickness) {
         super();
         //Construct the core stage
-
-        this.game = game;
-        //Import current game-state to access the game's renderer
 
         drawer = new Drawer(game);
         //Import QOL drawing functions
