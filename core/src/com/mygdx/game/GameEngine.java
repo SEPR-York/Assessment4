@@ -9,7 +9,12 @@ import com.badlogic.gdx.utils.Array;
 
 import java.util.*;
 
-
+/**
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
+ */
 
 // Changed in Assessment 3: Added so no more than one GameEngine can be instantiated at any one time.
 public class GameEngine {

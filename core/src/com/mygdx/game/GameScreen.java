@@ -1,5 +1,11 @@
 package com.mygdx.game;
 
+/**
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
+ */
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;

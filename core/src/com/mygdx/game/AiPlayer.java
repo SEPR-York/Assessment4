@@ -3,9 +3,10 @@ package com.mygdx.game;
 import java.util.Random;
 
 /**
- * @Author Team Fractal
- *
- * New for Assessment 3
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
  */
 public class AiPlayer extends Player {
     static private Random rnd = new Random();
