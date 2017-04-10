@@ -9,13 +9,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * @author Duck Related Team Name in Big Massive Letters
- * @since Assessment 2
- * @version Assessment 2
- *
- * An executable version of the game can be found at: https://jm179796.github.io/SEPR/DRTN-Assessment2.jar
- * Our website is: https://jm179796.github.io/SEPR/
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
  */
+
 public class MarketTest extends TesterFile{
     private Player TestPlayer = new Player(0);
     private Game testGame;

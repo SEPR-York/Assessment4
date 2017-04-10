@@ -8,10 +8,12 @@ import org.junit.BeforeClass;
 import org.mockito.Mockito;
 
 /**
- * @author Sourced from: http://manabreak.eu/java/2016/10/21/unittesting-libgdx.html
- * @version 1.0
- * @since 1.0
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
  */
+
 public class TesterFile{
     private static Application application;
 

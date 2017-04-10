@@ -1,7 +1,3 @@
-
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.mygdx.game.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +5,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+/**
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
+ */
 
 public class AiTest extends TesterFile {
     private AiPlayer aiPlayer;

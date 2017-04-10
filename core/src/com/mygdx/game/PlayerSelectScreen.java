@@ -16,10 +16,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
 /**
- * New Class for Assessment 3, allows user to slect the number of players
- * @author jc1850
- *
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
  */
+
 //new class for assessment 3
 public class PlayerSelectScreen implements Screen {
 	

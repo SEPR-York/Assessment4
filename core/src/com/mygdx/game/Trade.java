@@ -1,10 +1,12 @@
 package com.mygdx.game;
+
 /**
- * Class to facilitate trades for assessment 3
- * @author jc1850
- *
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
  */
-//new class for assessment 3
+
 public class Trade {
 	public final int oreAmount;
 	public final int energyAmount;

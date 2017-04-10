@@ -6,6 +6,13 @@ import org.junit.Test;
 import com.mygdx.game.Player;
 import com.mygdx.game.Trade;
 
+/**
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
+ */
+
 public class TradeTest {
 	
 	private Player player1;

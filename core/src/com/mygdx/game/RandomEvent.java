@@ -2,7 +2,12 @@ package com.mygdx.game;
 
 import java.util.Random;
 
-// This class was implemented during Assessment 3.
+/**
+ * @author Gandhi-Inc.
+ * @version Assessment 4
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ *          Our website is: www.gandhi-inc.me
+ */
 
 public abstract class RandomEvent {
 
