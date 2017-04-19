@@ -12,7 +12,7 @@ public class AiPlayer extends Player {
     static private Random rnd = new Random();
 
     public AiPlayer(int i) {
-        super(i);
+        super(i, null);
     }
 
     @Override

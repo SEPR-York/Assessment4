@@ -2,14 +2,15 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.graphics.Color;
 
 /**
  * @author Gandhi-Inc.
- * @version Assessment 4
- *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
+ * @version Assessment 3
+ *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment3.jar
  *          Our website is: www.gandhi-inc.me
+ * @since Assessment 3
  */
-
 public class College {
 
   /**
@@ -33,24 +34,10 @@ public class College {
   private String Name;
 
   /**
-   * The custom name that a player can choose for the college.
-   */
-  private String CustomName;
+  * The color of the College
+  */
 
-  /**
-   * The effect(bonus) that the college uniquely has.
-   */
-  //private Effect Effect;
-  /**
-   * The player is playing as the college.
-   */
-
-  private Player Owner;
-
-  /**
-   * The description of the College.
-   */
-  private String Description;
+  private Color color;
 
   /**
    * The symbol of the college
@@ -66,94 +53,100 @@ public class College {
    * The constructor for the College class
    * This will assign a name and a logo to the College based on the ID provided
    *
-   * @param ID The ID of the college.
-   * @param Description The description of the college.
+   * @param college The Name of the college.
    */
-  public College(int ID, String Description){
+  public College(String college){
 
-    this.ID = ID;
-
-    // Changed in Assessment 3: Switch value ranges from 0-8, rather than 1-9.
-    switch (this.ID) {
-      case 0:
+      //Given the college string initialise some of the important variables for the game to display properly
+    if (college == "Derwent")
+    {
         this.Name = "Derwent";
         this.logoTexture = new Texture("image/Derwent.png");
-        break;
-      case 1:
-        this.Name = "Langwith";
+        this.color = Color.BLUE;
+    }
+    else if (college == "Langwith")
+    {
+    	this.Name = "Langwith";
         this.logoTexture = new Texture("image/Langwith.png");
-        break;
-      case 2:
-        this.Name = "Vanburgh";
-        this.logoTexture = new Texture("image/Vanbrugh.png");
-        break;
-      case 3:
-        this.Name = "James";
+        this.color = Color.CHARTREUSE;
+    }
+    else if (college == "Vanburgh")
+    {
+    	this.Name = "Vanburgh";
+        this.logoTexture = new Texture("image/Vanburgh.png");
+        this.color = Color.TEAL;
+    }
+    else if (college == "James")
+    {
+    	this.Name = "James";
         this.logoTexture = new Texture("image/James.png");
-        break;
-      case 4:
-        this.Name = "Wentworth";
+        this.color = Color.CYAN;
+    }
+    else if (college == "Wentworth")
+    {
+    	this.Name = "Wentworth";
         this.logoTexture = new Texture("image/Wentworth.png");
-        break;
-      case 5:
-        this.Name = "Halifax";
+        this.color = Color.MAROON;
+    }
+    else if (college == "Halifax")
+    {
+    	this.Name = "Halifax";
         this.logoTexture = new Texture("image/Halifax.png");
-        break;
-      case 6:
-        this.Name = "Alcuin";
+        this.color = Color.YELLOW;
+    }
+    else if (college == "Alcuin")
+    {
+    	this.Name = "Alcuin";
         this.logoTexture = new Texture("image/Alcuin.png");
-        break;
-      case 7:
-        this.Name = "Goodricke";
+        this.color = Color.RED;
+    }
+    else if (college == "Goodricke")
+    {
+    	this.Name = "Goodricke";
         this.logoTexture = new Texture("image/Goodricke.png");
-        break;
-      case 8:
+        this.color = Color.GREEN;
+    }
+    else if (college == "Constantine")
+    {
         this.Name = "Constantine";
         this.logoTexture = new Texture("image/Constantine.png");
-        break;
+        this.color = Color.PINK;
     }
-    //College ID determines name and logo
 
     this.logo = new Image(logoTexture);
     //Map the college's associated logo texture to an image object
 
-    this.Description = Description;
-    //Set the description of the college
-    //This will be displayed on the college-selection screen
   }
 
-  /**
-   * Setter for the custom name.
-   * @param Name The name that the custom name is to be changed to.
-   */
-  public void changeCustomName(String Name) {
-    this.CustomName = Name;
-  }
-
-  /**
-   * Assigns a player to the college.
-   * @param Player The player that has chosen the college.
-   */
-  public void assignPlayer( Player Player) {
-      this.Owner = Player;
-  }
 
   /**
    * Returns the college's assigned name
    *
    * @return String The college's name
    */
-  public String getName() {
+  public String getName() 
+  {
     return this.Name;
   }
 
   /**
    * Returns the college's associated ID
    *
-   * @return int The college's associated ID
+   * @return Integer The college's associated ID
    */
-  public int getID() {
+  public int getID() 
+  {
     return this.ID;
+  }
+
+  /**
+  * Returns the Color object for this college
+  *
+  * @return Color The color associated with the college
+  */
+  public Color getColor()
+  {
+      return color;
   }
 
   /**
@@ -161,7 +154,8 @@ public class College {
    *
    * @return Image Icon representing the college
    */
-  public Image getLogo() {
+  public Image getLogo() 
+  {
     return this.logo;
   }
 
@@ -170,8 +164,8 @@ public class College {
    *
    * @return Texture The texture encoding the college's logo
    */
-  public Texture getLogoTexture() {
+  public Texture getLogoTexture() 
+  {
     return logoTexture;
-
   }
 }

@@ -9,6 +9,8 @@ import com.badlogic.gdx.utils.Array;
 
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 /**
  * @author Gandhi-Inc.
  * @version Assessment 4
@@ -113,7 +115,8 @@ public class GameEngine {
      * @param game Variable storing the game's state
      * @param gameScreen The object encoding the in-game interface which is to be controlled by this engine
      */
-    public GameEngine(Game game, GameScreen gameScreen) {
+    public GameEngine(Game game, GameScreen gameScreen) 
+    {
         _instance = this;
 
         this.game = game;
@@ -126,7 +129,8 @@ public class GameEngine {
         drawer = new Drawer(this.game);
         //Import QOL drawing function
 
-        
+        players = new Player[3];
+        currentPlayerID = 1;
         //Set up objects to hold player-data
         //Start the game such that player 1 makes the first move
 
@@ -166,20 +170,7 @@ public class GameEngine {
         state = State.RUN;
         //Mark the game's current play-state as "running" (IE: not paused)
 
-        // Added in Assessment 3: Stores each college in the college array.
-        // ----------------------------------------------------------------
-        colleges = new College[9];
-        colleges[0] = new College(0, "Goodricke");
-        colleges[1] = new College(1, "Derwent");
-        colleges[2] = new College(2, "Langwith");
-        colleges[3] = new College(3, "Alcuin");
-        colleges[4] = new College(4, "Constantine");
-        colleges[5] = new College(5, "Halifax");
-        colleges[6] = new College(6, "James");
-        colleges[7] = new College(7, "Vanbrugh");
-        colleges[8] = new College(8, "Wentworth");
-        // ----------------------------------------------------------------
-
+   
         phase = 0;
         currentPlayerID = 0;
         trades = new Array<Trade>();
@@ -674,44 +665,59 @@ public class GameEngine {
     	int length = AIAmount + playerAmount;
     	
     	players = new Player[length];
-    	for(int i = 0; i < playerAmount; i++){
-    		Player player = new Player(i);
+    	for(int i = 0; i < playerAmount; i++)
+    	{
+    		String popUpText = "Player " + i;
+    		String playername = JOptionPane.showInputDialog(null, popUpText + " enter your name", popUpText);
+
+            if(playername == null || playername == "")   		// If the player click's cancel or doesn't enter a name
+            {
+            	game.setScreen(new MainMenu(game));		// Returns to main screen
+            }
+            
+    		Player player = new Player(i, playername);
     		players[i] = player;
-    		College college = colleges[i];
-    		college.assignPlayer(player);
+    		College college = new College("Derwent");
     		player.assignCollege(college);
+    		player.assignName(playername);
     	}
     	for(int i = playerAmount; i < length; i++){
     		Player player = new AiPlayer(i);
     		players[i] = player;
-    		College college = colleges[i];
-    		college.assignPlayer(player);
+    		String playername = "Player " + i;
+    		College college = new College("Derwent");
     		player.assignCollege(college);
+    		player.assignName(playername);
     	}
     	currentPlayerID = length - 1;
         market = new Market(game, this);
     }
 
-    public void testTrade(){
+    public void testTrade()
+    {
         Trade trade = getCurrentPendingTrade();
         if (trade == null) return ;
         gameScreen.activeTrade(trade);
     }
 
-    public void closeTrade(){
+    public void closeTrade()
+    {
         gameScreen.closeTradeOverlay();
     }
 
 
-    public void miniGame() {
+    public void miniGame() 
+    {
         game.setScreen(new MiniGameScreen());
     }
 
-    public GameScreen getGameScreen() {
+    public GameScreen getGameScreen() 
+    {
         return gameScreen;
     }
 
-    public void backToGame(){
+    public void backToGame()
+    {
         game.setScreen(getGameScreen());
 
     }

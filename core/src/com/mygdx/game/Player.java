@@ -48,6 +48,8 @@ public class Player {
      */
     private College College;
 
+    private String name;
+    
     /**
      * A list of the tiles that the player owns.
      */
@@ -65,11 +67,16 @@ public class Player {
      *
      * @param playerID The id of the player that is being created. Should be an integer greater than 0.
      */
-    public Player(int playerID) {
+    public Player(int playerID, String name) {
         this.playerID = playerID;
+        this.name = name;
     }
 
-
+    public String getName()
+    {
+        return name;
+    }
+    
     public int getPlayerID() {
         return playerID;
     }
@@ -168,12 +175,18 @@ public class Player {
         this.Active = !this.Active;
     }
 
+    public void assignName(String name) 
+    {
+        this.name = name;
+    }
+    
     /**
      * Changes the college of the player to the one that is specified.
      *
      * @param College The college that the player is being assigned to.
      */
-    public void assignCollege(College College) {
+    public void assignCollege(College College) 
+    {
         this.College = College;
     }
 
@@ -183,7 +196,8 @@ public class Player {
      * @param Tile The tile that is to be added to the player's tile list.
      */
 
-    public void assignTile(Tile Tile) {
+    public void assignTile(Tile Tile) 
+    {
         TileList.add(Tile);
     }
 

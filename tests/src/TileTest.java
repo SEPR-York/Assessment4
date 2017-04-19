@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 
 public class TileTest extends TesterFile {
     private Game game = new Main();
-    private Player TestPlayer = new Player(1);
+    private Player TestPlayer = new Player(1, "player1");
     private Tile TestTile = new Tile(game, 0, 5, 5, 5, true, new Runnable() {
         @Override
         public void run() {

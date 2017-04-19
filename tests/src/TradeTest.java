@@ -21,8 +21,8 @@ public class TradeTest {
 	
 	@Before
 	public void setup(){
-		player1 = new Player(0);
-		player2 = new Player(1);
+		player1 = new Player(0, "player1");
+		player2 = new Player(1, "player2");
 		trade = new Trade(10, 10, 10, 100, player1, player2);
 	}
 	/**

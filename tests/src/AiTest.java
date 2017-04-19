@@ -20,7 +20,7 @@ public class AiTest extends TesterFile {
     @Before
     public void aiInit() {
         aiPlayer = new AiPlayer(0);
-        humanPlayer = new Player(1);
+        humanPlayer = new Player(1, "player1");
     }
 
     @Test

@@ -22,7 +22,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
  *          Our website is: www.gandhi-inc.me
  */
 
-//new class for assessment 3
 public class PlayerSelectScreen implements Screen {
 	
 	/**
@@ -132,6 +131,7 @@ public class PlayerSelectScreen implements Screen {
     public PlayerSelectScreen(Game game) {
         this.game = game;
         this.gameScreen =  new GameScreen(this.game);
+        
         this.engine = new GameEngine(this.game, this.gameScreen);
         gameScreen.assignEngine(engine);
         

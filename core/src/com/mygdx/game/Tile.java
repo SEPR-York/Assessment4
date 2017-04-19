@@ -97,6 +97,9 @@ public class Tile extends Button {
      * Determines the thickness of the tile's border (in pixels)
      */
     private int tileBorderThickness;
+    
+    private boolean chancellorActive;
+
 
     /**
      * Construct's the tile's visual interface and logical underpinnings. Sets the sizes of the tile's associated
@@ -138,7 +141,10 @@ public class Tile extends Button {
 
         tooltipActive = false;
         //Initialise boolean variable to track when the tile's tooltip is on-screen
-
+        
+        //Set chancellor active to false
+        this.chancellorActive = false;
+        
         tileBorderColor = Color.BLACK;
         tileBorderThickness = 3;
         //Initialise the tile's border to default visual parameters
@@ -431,5 +437,17 @@ public class Tile extends Button {
     public Roboticon getRoboticonStored(){
         return this.roboticonStored;
     }
-
+    
+    /**
+     * Adds a chancellor to the tile
+     */
+    public void addChancellor()
+    {
+    	this.chancellorActive = true;
+    }
+    
+    public void removeChancellor()
+    {
+    	this.chancellorActive = false;
+    }
 }

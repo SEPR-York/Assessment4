@@ -18,7 +18,7 @@ import static org.junit.Assert.assertNotEquals;
 public class PlayerTest extends TesterFile {
 
     private Game game = new Main();
-    private Player TestPlayer = new Player(1);
+    private Player TestPlayer = new Player(1, "player1");
     private Tile TestTile = new Tile(game, 0,0,0,0, true, new Runnable() {
         @Override
         public void run() {
@@ -26,7 +26,7 @@ public class PlayerTest extends TesterFile {
         }
     });
     private Roboticon TestRoboticon = new Roboticon(0, TestPlayer, TestTile);
-    private College TestCollege = new College (1, "I am a test.");
+    private College TestCollege = new College ("Derwent");
 
     @Test
     public void testAssignCollege(){

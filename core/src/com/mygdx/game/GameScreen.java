@@ -156,6 +156,11 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      * Font which will be adopted by the game-screen's main interface
      */
     private static TTFont gameFont;
+    
+    /**
+     * Image of the chancellor
+     */
+    private Texture chancellorTexture;
 
     public static TextButton.TextButtonStyle getGameButtonStyle() {
         return gameButtonStyle;
@@ -224,7 +229,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
 	private TextButton cancelTradeButton;
 
 	private Overlay tooExpensiveOverlay;
-
+	
 	private boolean tooExpensiveOverlayVisible;
 
 	private TextButton closePriceOverlayButton;
@@ -1303,6 +1308,12 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
         //Direct user inputs back towards the main stage
 
     }
+    
+    public void chancellorOverlay()
+    {
+        chancellorTexture = new Texture(Gdx.files.internal("image/Chancellor.png"));
+    }
+    
     
     public void assignEngine(GameEngine engine){
     	this.engine = engine;
