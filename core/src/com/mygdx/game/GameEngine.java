@@ -99,8 +99,6 @@ public class GameEngine {
     // ---------------------------------------------------------------------------------
     private Array<Trade> trades;
 
-	private College[] colleges;
-
     private ArrayList<RandomEvent> randomEvents = new ArrayList<RandomEvent>();
     // ---------------------------------------------------------------------------------
 
