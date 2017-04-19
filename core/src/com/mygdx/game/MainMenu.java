@@ -146,10 +146,11 @@ public class MainMenu implements Screen {
         });
         
         buttons[2] = new TextButton("Leaderboard", menuButtonStyle);
-
-        //hideing the how to play and leaderboard button.
-        // buttons[0].setVisible(false);
-        buttons[2].setVisible(false); // New
+        buttons[2].addListener(new ChangeListener() {
+            public void changed(ChangeEvent event, Actor actor) {
+                game.setScreen(new LeaderboardFrontend(game));
+            }
+        });
 
 
         //Initialise menu buttons using defined style
