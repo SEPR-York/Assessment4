@@ -141,7 +141,7 @@ public class MainMenu implements Screen {
         buttons[1] = new TextButton("How to Play", menuButtonStyle);
         buttons[1].addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
-                game.setScreen(new HowToPlay(game));
+                game.setScreen(new game));
             }
         });
         
@@ -155,7 +155,7 @@ public class MainMenu implements Screen {
         //Initialise menu buttons using defined style
 
         //ADD TITLE BAR
-        drawer.addTableRow(table, new Label("Sabbaticoup", new Label.LabelStyle(titleFont.font(), Color.WHITE)), 0, 0, 0, 0);
+        drawer.addTableRow(table, new Label("Gandhi Inc", new Label.LabelStyle(titleFont.font(), Color.WHITE)), 0, 0, 0, 0);
         drawer.addTableRow(table, new Label("(Title TBC)", new Label.LabelStyle(tempFont.font(), Color.WHITE)), 0, 0, 50, 0);
 
         //ADD BUTTONS - refactored for Assessment 3
