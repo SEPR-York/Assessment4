@@ -139,11 +139,16 @@ public class MainMenu implements Screen {
 
 
         buttons[1] = new TextButton("How to Play", menuButtonStyle);
+        buttons[1].addListener(new ChangeListener() {
+            public void changed(ChangeEvent event, Actor actor) {
+                game.setScreen(new HowToPlay(game));
+            }
+        });
+        
         buttons[2] = new TextButton("Leaderboard", menuButtonStyle);
 
         //hideing the how to play and leaderboard button.
         // buttons[0].setVisible(false);
-        buttons[1].setVisible(false); // New
         buttons[2].setVisible(false); // New
 
 
