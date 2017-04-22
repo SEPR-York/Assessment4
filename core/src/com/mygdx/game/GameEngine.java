@@ -633,6 +633,8 @@ public class GameEngine {
                 return b.calculateScore() - a.calculateScore();
             }
         });
+        LeaderboardBackend.AddPlayerToLeaderboard(Integer.toString(playersList.get(0).getPlayerID()), playersList.get(0).calculateScore());
+
         return playersList.get(0).getPlayerID();
     }
     public boolean isCurrentlyAiPlayer() {
