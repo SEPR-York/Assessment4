@@ -19,9 +19,11 @@ import javax.swing.JOptionPane;
  */
 
 // Changed in Assessment 3: Added so no more than one GameEngine can be instantiated at any one time.
-public class GameEngine {
+public class GameEngine 
+{
     private static GameEngine _instance;
-    public static GameEngine getInstance() {
+    public static GameEngine getInstance() 
+    {
         return _instance;
     }
 
@@ -175,7 +177,12 @@ public class GameEngine {
 
     }
 
-    public void selectTile(Tile tile) {
+    public Tile[] getTiles() 
+    {
+		return tiles;
+	}
+
+	public void selectTile(Tile tile) {
         selectedTile = tile;
     }
 
@@ -198,7 +205,6 @@ public class GameEngine {
         timer.stop();
         nextPlayer();
         System.out.println("Player " + currentPlayerID + " | Phase " + phase);
-        Chancellor chancellorGame = new Chancellor();
 
         
         market.refreshButtonAvailability();
@@ -216,7 +222,6 @@ public class GameEngine {
                 break;
 
             case 3:
-            	chancellorGame.randomlyChooseTile(players[currentPlayerID]);
             	timer.setTime(0, 30);
                 timer.start();
                 break;
@@ -298,7 +303,12 @@ public class GameEngine {
         return eventHappened;
     }
 
-
+    private void chancellor()
+    {
+        Chancellor chancellorGame = new Chancellor();
+    	chancellorGame.randomlyChooseTile(players[currentPlayerID], GameEngine.getInstance());
+    }
+    
     // Added in Assessment 3: Added to select random events.
     private void selectRandomEvent() {
         Random random = new Random();
@@ -345,8 +355,14 @@ public class GameEngine {
         currentPlayerID ++;
         if (currentPlayerID >= players.length) {
             currentPlayerID = 0;
-
-            if (phase == 4) {
+            
+            if (phase == 3)
+            {
+            	chancellor();
+            }
+            
+            if (phase == 4) 
+            {
                 checkEventDurations();
                 selectRandomEvent();
             }

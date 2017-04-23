@@ -60,8 +60,6 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      * Holds the image of the in-game map
      */
     private Image map;
-
-    private Texture chancellor;
     
     /**
      * Establishes the grid of tiles to be laid over the map
@@ -162,7 +160,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     /**
      * Image of the chancellor
      */
-
+    private Texture chancellorTexture = new Texture(Gdx.files.internal("image/Chancellor.png"));
+    
     public static TextButton.TextButtonStyle getGameButtonStyle() {
         return gameButtonStyle;
     }
@@ -308,7 +307,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
         engine.nextPhase();
     }
 
-    /**
+	/**
      * Renders all visual elements (set up in the [show()] subroutine and all of its subsiduaries) to the window
      * This is called to prepare each and every frame that the game deploys
      *
@@ -329,7 +328,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
             //Draw the stage onto the screen
 
             // Draw owned tile's border
-            for (Tile tile : engine.tiles()) {
+            for (Tile tile : engine.tiles()) 
+            {
                 tile.drawBorder();
             }
 
@@ -338,9 +338,10 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
 
             // Draw
             if (!upgradeOverlayVisible) {
-                for (Tile tile : engine.tiles()) {
-                    tile.drawTooltip();
-                    //If any of the tiles' tooltips are deemed "active", render them to the screen too
+                for (Tile tile : engine.tiles()) 
+                {
+                    tile.drawTooltip();	                    //If any of the tiles' tooltips are deemed "active", render them to the screen too
+                    chancellor(tile);
                 }
             }
             else {
@@ -368,19 +369,6 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
             if (tooExpensiveOverlayVisible) {
             	tooExpensiveOverlay.act(delta);
             	tooExpensiveOverlay.draw();
-            }
-            
-            for(Tile tile : engine.tiles())
-            {
-            	if (tile.chancellorTextureVisible)
-                {
-                	chancellor = new Texture(Gdx.files.internal("image/Chancellor.png"));
-                	batch.begin();
-                	float x = tile.getX() + tile.getParent().getX();
-                	float y = tile.getY() + tile.getParent().getY();
-                	batch.draw(chancellor, (int) x, (int) y);
-                	batch.end();
-                }
             }
             
             
@@ -1113,6 +1101,23 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
 
 	private Trade currentTrade;
 
+	/**
+	 * Draws the chancellor is it is set to visible
+	 * @param tile The tile it will be drawn on
+	 */
+	private void chancellor(Tile tile)
+	{
+		
+		if(tile.chancellorIsVisible() == true)					// Checks to see if the tile has the chancellor set to visible
+		{
+			batch.begin();										// Start batching the file
+	        float x = tile.getX() + tile.getParent().getX();	// Find the x coordinate of the tile
+	        float y = tile.getY() + tile.getParent().getY();	// Find the y coordinate of the tile
+	        batch.draw(chancellorTexture, (int) x, (int) y);	// Draw the chancellor on those coordinates
+	        batch.end();										// End the batching
+		}
+	}
+	
     /**
      * The code to be run whenever a particular tile is clicked on
      * Specifically updates the label identifying the selected tile, the college icon linked to the player who owns

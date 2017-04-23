@@ -438,16 +438,23 @@ public class Tile extends Button {
         return this.roboticonStored;
     }
     
+    public boolean chancellorIsVisible()
+    {
+    	return chancellorTextureVisible;
+    }
+    
     /**
      * Adds a chancellor to the tile
      */
     public void showchancellorTexture() 
     {
         chancellorTextureVisible = true;
+        System.out.println("Tile class visible set to - " + chancellorTextureVisible);
     }
 
     public void hidechancellorTexture() 
     {
         chancellorTextureVisible = false;
+        System.out.println("Tile class visible set to - " + chancellorTextureVisible);
     }
 }
