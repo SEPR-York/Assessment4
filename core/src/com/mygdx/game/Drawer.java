@@ -28,19 +28,12 @@ import com.badlogic.gdx.utils.Align;
 
 public class Drawer {
     /**
-     * Holds game-state
-     */
-    private Game game;
-
-    /**
      * Class constructor
      * Stores the game's state inside the drawer class
      *
      * @param game
      */
     public Drawer (Game game) {
-        this.game = game;
-        //Import current game-state
     }
 
     private static SpriteBatch batch;
@@ -48,7 +41,6 @@ public class Drawer {
     private static ShapeRenderer renderer;
     private static Sprite roboticonSprite;
     private static TTFont defaultTTFont;
-    private static BitmapFont defaultFont;
     private static BitmapFont font04b08;
     private static GlyphLayout glyphLayout;
     
@@ -58,7 +50,7 @@ public class Drawer {
         roboticonSprite = new Sprite(new Texture("roboticon/roboticon.png"));
         defaultTTFont = new TTFont(Gdx.files.internal("font/earthorbiter.ttf"),
                 12, 1, Color.BLACK, false);
-        defaultFont = defaultTTFont.font();
+        defaultTTFont.font();
 
         // Load 8px bitmap retro style (that is clear to see) font.
         FreeTypeFontGenerator TTFGenerator = new FreeTypeFontGenerator(Gdx.files.internal("font/04B_08__.ttf"));

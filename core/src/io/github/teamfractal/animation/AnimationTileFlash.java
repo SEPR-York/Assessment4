@@ -20,7 +20,12 @@ public class AnimationTileFlash implements IAnimation {
     private IAnimationFinish callback;
     private boolean keepFlashing;
     private boolean reverseAnimation;
-    private static final List<Integer> flashPhase = new ArrayList<Integer>(){{
+    private static final List<Integer> flashPhase = new ArrayList<Integer>(){/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+	{
         add(1);
         add(3);
     }};

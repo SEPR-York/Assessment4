@@ -2,9 +2,7 @@ package io.github.teamfractal.animation;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.utils.Align;
-import com.mygdx.game.GameEngine;
 import io.github.teamfractal.screens.AbstractAnimationScreen;
 
 public class AnimationPlayerWin implements IAnimation {

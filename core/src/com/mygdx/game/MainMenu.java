@@ -157,7 +157,7 @@ public class MainMenu implements Screen {
 
         //ADD TITLE BAR
         drawer.addTableRow(table, new Label("Gandhi Inc", new Label.LabelStyle(titleFont.font(), Color.WHITE)), 0, 0, 0, 0);
-        drawer.addTableRow(table, new Label("(Title TBC)", new Label.LabelStyle(tempFont.font(), Color.WHITE)), 0, 0, 50, 0);
+        drawer.addTableRow(table, new Label("(Assessment 4)", new Label.LabelStyle(tempFont.font(), Color.WHITE)), 0, 0, 50, 0);
 
         //ADD BUTTONS - refactored for Assessment 3
         for (Button button : buttons) {
