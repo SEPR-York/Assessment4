@@ -98,7 +98,7 @@ public class Tile extends Button {
      */
     private int tileBorderThickness;
     
-    private boolean chancellorActive;
+    public boolean chancellorTextureVisible;
 
 
     /**
@@ -143,7 +143,7 @@ public class Tile extends Button {
         //Initialise boolean variable to track when the tile's tooltip is on-screen
         
         //Set chancellor active to false
-        this.chancellorActive = false;
+        this.chancellorTextureVisible = false;
         
         tileBorderColor = Color.BLACK;
         tileBorderThickness = 3;
@@ -441,13 +441,13 @@ public class Tile extends Button {
     /**
      * Adds a chancellor to the tile
      */
-    public void addChancellor()
+    public void showchancellorTexture() 
     {
-    	this.chancellorActive = true;
+        chancellorTextureVisible = true;
     }
-    
-    public void removeChancellor()
+
+    public void hidechancellorTexture() 
     {
-    	this.chancellorActive = false;
+        chancellorTextureVisible = false;
     }
 }

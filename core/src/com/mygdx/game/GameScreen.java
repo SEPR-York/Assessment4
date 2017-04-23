@@ -61,6 +61,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      */
     private Image map;
 
+    private Texture chancellor;
+    
     /**
      * Establishes the grid of tiles to be laid over the map
      */
@@ -160,7 +162,6 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     /**
      * Image of the chancellor
      */
-    private Texture chancellorTexture;
 
     public static TextButton.TextButtonStyle getGameButtonStyle() {
         return gameButtonStyle;
@@ -368,6 +369,21 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
             	tooExpensiveOverlay.act(delta);
             	tooExpensiveOverlay.draw();
             }
+            
+            for(Tile tile : engine.tiles())
+            {
+            	if (tile.chancellorTextureVisible)
+                {
+                	chancellor = new Texture(Gdx.files.internal("image/Chancellor.png"));
+                	batch.begin();
+                	float x = tile.getX() + tile.getParent().getX();
+                	float y = tile.getY() + tile.getParent().getY();
+                	batch.draw(chancellor, (int) x, (int) y);
+                	batch.end();
+                }
+            }
+            
+            
             //Draw the roboticon upgrade overlay to the screen if the "upgrade" button has been selected
         } else if (engine.state() == GameEngine.State.PAUSE) {
             drawer.filledRectangle(Color.WHITE, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -634,7 +650,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
         //Prepare and add the "End Phase" button to the table
 
         gameFont.setSize(36);
-        drawer.addTableRow(tableLeft, new Label("CURRENT PLAYER", new Label.LabelStyle(gameFont.font(), Color.BLACK)), 0, 0, 10, 0, 2);
+        String currentPlayer = engine.currentPlayer().getName();
+        drawer.addTableRow(tableLeft, new Label(currentPlayer, new Label.LabelStyle(gameFont.font(), Color.BLACK)), 0, 0, 10, 0, 2);
         //Window-dressing: adds "CURRENT PLAYER" label
 
 
@@ -1308,12 +1325,6 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
         //Direct user inputs back towards the main stage
 
     }
-    
-    public void chancellorOverlay()
-    {
-        chancellorTexture = new Texture(Gdx.files.internal("image/Chancellor.png"));
-    }
-    
     
     public void assignEngine(GameEngine engine){
     	this.engine = engine;

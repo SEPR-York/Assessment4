@@ -198,6 +198,8 @@ public class GameEngine {
         timer.stop();
         nextPlayer();
         System.out.println("Player " + currentPlayerID + " | Phase " + phase);
+        Chancellor chancellorGame = new Chancellor();
+
         
         market.refreshButtonAvailability();
         switch (phase) {
@@ -214,6 +216,7 @@ public class GameEngine {
                 break;
 
             case 3:
+            	chancellorGame.randomlyChooseTile(players[currentPlayerID]);
             	timer.setTime(0, 30);
                 timer.start();
                 break;
@@ -229,7 +232,7 @@ public class GameEngine {
         }
 
         if(checkGameEnd()){
-            System.out.println("Someone win");
+            System.out.println("Someone won");
             gameScreen.showPlayerWin(getWinner());
         }
 
