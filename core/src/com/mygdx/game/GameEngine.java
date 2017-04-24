@@ -9,8 +9,6 @@ import com.badlogic.gdx.utils.Array;
 
 import java.util.*;
 
-import javax.swing.JOptionPane;
-
 /**
  * @author Gandhi-Inc.
  * @version Assessment 4
@@ -46,10 +44,10 @@ public class GameEngine
      */
     private static Player[] players;
 
-    /**
+	/**
      * Holds the numeric getID of the player who's currently active in the game
      */
-    private int currentPlayerID;
+    public int currentPlayerID;
 
     /**
      * Holds the number of the phase that the game is currently in
@@ -72,7 +70,7 @@ public class GameEngine
      * Holds all of the data and the functions of the game's market
      * Also comes bundled with a visual interface which can be rendered on to the game's screen
      */
-    private Market market;
+    public Market market;
 
     /**
      * Array holding the tiles to be laid over the map
@@ -681,37 +679,7 @@ public class GameEngine
         return null;
     }
     
-    public void initialisePlayers(int AIAmount, int playerAmount){
-    	int length = AIAmount + playerAmount;
-    	
-    	players = new Player[length];
-    	for(int i = 0; i < playerAmount; i++)
-    	{
-    		String popUpText = "Player " + i;
-    		String playername = JOptionPane.showInputDialog(null, popUpText + " enter your name", popUpText);
-
-            if(playername == null || playername == "")   		// If the player click's cancel or doesn't enter a name
-            {
-            	game.setScreen(new MainMenu(game));		// Returns to main screen
-            }
-            
-    		Player player = new Player(i, playername);
-    		players[i] = player;
-    		College college = new College("Derwent");
-    		player.assignCollege(college);
-    		player.assignName(playername);
-    	}
-    	for(int i = playerAmount; i < length; i++){
-    		Player player = new AiPlayer(i);
-    		players[i] = player;
-    		String playername = "Player " + i;
-    		College college = new College("Derwent");
-    		player.assignCollege(college);
-    		player.assignName(playername);
-    	}
-    	currentPlayerID = length - 1;
-        market = new Market(game, this);
-    }
+    
 
     public void testTrade()
     {
@@ -736,6 +704,16 @@ public class GameEngine
         return gameScreen;
     }
 
+    public Player[] getPlayers() 
+    {
+		return players;
+	}
+
+	public void setPlayers(Player[] players) 
+	{
+		GameEngine.players = players;
+	}
+	
     public void backToGame()
     {
         game.setScreen(getGameScreen());

@@ -1,5 +1,7 @@
 package com.mygdx.game;
 
+import javax.swing.JOptionPane;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -223,7 +225,7 @@ public class PlayerSelectScreen implements Screen {
         confirmButton = new TextButton("Confirm", menuButtonStyle);
         confirmButton.addListener(new ChangeListener() {
             public void changed(ChangeEvent event, Actor actor) {
-               engine.initialisePlayers(AIPlayerAmount, playerAmount);
+               initialisePlayers(engine, AIPlayerAmount, playerAmount);
                game.setScreen(gameScreen);
             }
         });
@@ -302,7 +304,8 @@ public class PlayerSelectScreen implements Screen {
 	 * disable buttons which should not be pressed
 	 * change numbers displayed when incremented/decremented
 	 */
-	public void refreshLabels(){
+	public void refreshLabels()
+	{
 		//default gray and disabled
 		drawer.toggleButton(addPlayerButton, false, Color.GRAY);
 		drawer.toggleButton(addAIPlayerButton, false, Color.GRAY);
@@ -331,4 +334,39 @@ public class PlayerSelectScreen implements Screen {
 	}
 	
 
+	public void initialisePlayers(GameEngine engine, int AIAmount, int playerAmount)
+	{
+    	int length = AIAmount + playerAmount;
+    	
+    	Player[] players;
+    	players = new Player[length];
+    	for(int i = 0; i < playerAmount; i++)
+    	{
+    		String popUpText = "Player " + i+1;
+    		String playername = JOptionPane.showInputDialog(null, popUpText + " enter your name", popUpText);
+
+            if(playername == null || playername == "")   		// If the player click's cancel or doesn't enter a name
+            {
+            	game.setScreen(new MainMenu(game));		// Returns to main screen
+            }
+            
+    		Player player = new Player(i, playername);
+    		players[i] = player;
+    		College college = new College("Derwent");
+    		player.assignCollege(college);
+    		player.assignName(playername);
+    	}
+    	for(int i = playerAmount; i < length; i++)
+    	{
+    		Player player = new AiPlayer(i);
+    		players[i] = player;
+    		String playername = "Player " + i;
+    		College college = new College("Derwent");
+    		player.assignCollege(college);
+    		player.assignName(playername);
+    	}
+    	engine.setPlayers(players);
+    	engine.currentPlayerID = length - 1;
+        engine.market = new Market(game, engine);
+    }
 }

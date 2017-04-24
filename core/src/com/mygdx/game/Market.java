@@ -1432,14 +1432,15 @@ public class Market extends Table {
      * updates the other player list so all players except the current player are in it
      */
     //all below is new for assessment 3
-    public void refreshPlayers(){
+    public void refreshPlayers()
+    {
     	otherPlayer = new Array<Player>();
         for (Player player : engine.players()) {
             if (player != null && engine.currentPlayer() != player) {
                 otherPlayer.add(player); 
             } 
         }
-        playerLabel.setText("Player " + otherPlayer.get(0).getPlayerNumber());
+        playerLabel.setText(otherPlayer.get(0).getName());
     }
     
     
