@@ -24,9 +24,11 @@ public class Tile extends Button {
      */
     private final int tooltipWidth;
     /**
-     * Defines height of the tile's tooltip
+     * Defines height of each text line in tooltip and total sum of heights
      */
-    private final int tooltipHeight;
+    private final int tooltipHeightTotal;
+    private final int tooltipHeightLine1;
+    private final int tooltipHeightLine2;
     /**
      * Defines distance (in pixels) from cursor point to the lower-right (or upper-right) corner of the tile's tooltip
      * (on both axes)
@@ -48,6 +50,7 @@ public class Tile extends Button {
      * Defines the font of the text inside the tile's tooltip
      */
     private final TTFont tooltipFont;
+    private final TTFont tooltipFont2;
     /**
      * Holds game-state for the purpose of accessing the game's renderer
      */
@@ -128,15 +131,19 @@ public class Tile extends Button {
         this.ID = ID;
         //Import and save the tile's assigned getID
 
-        tooltipWidth = 76;
-        tooltipHeight = 33;
+        tooltipWidth = 275;
+        tooltipHeightLine1 = 26;
+        tooltipHeightLine2 = 18;
         tooltipCursorSpace = 3;
         tooltipTextSpace = 3;
+        tooltipHeightTotal = tooltipHeightLine1 + 2*tooltipHeightLine2 + 2*tooltipTextSpace;
 
         tooltipFillColor = Color.GRAY;
         tooltipLineColor = Color.BLACK;
 
         tooltipFont = new TTFont(Gdx.files.internal("font/testfontbignoodle.ttf"), 36);
+        tooltipFont2 = new TTFont(Gdx.files.internal("font/testfontbignoodle.ttf"), 20);
+        tooltipFont2.font().getData().markupEnabled = true;
         //Visual parameters of the tile's tooltip
 
         tooltipActive = false;
@@ -332,17 +339,37 @@ public class Tile extends Button {
      * This must be called during the construction of each frame in which the tooltip is to be shown
      */
     public void drawTooltip() {
+    	// Fetch levels of assigned roboticon, if there is one.
+    	int lvls[] = {0,0,0};
+    	if (this.roboticonStored != null) {
+    		lvls = this.roboticonStored.getLevel();
+    	}
         if (tooltipActive == true) {
-            if (Gdx.input.getY() < tooltipHeight) {
-                drawer.borderedRectangle(tooltipFillColor, tooltipLineColor, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace, Gdx.input.getY() + tooltipCursorSpace, tooltipWidth, tooltipHeight, 1);
-                //Draw the tooltip's main space onto the screen in the region to the top-left of the cursor
+        	// Check cursor Y to determine if label needs to be above or below cursor.
+            if (Gdx.input.getY() < tooltipHeightTotal) {
+            	// Draw the tooltip's background onto the screen in the region to the top-left of the cursor.
+                drawer.borderedRectangle(tooltipFillColor, tooltipLineColor, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace, Gdx.input.getY() + tooltipCursorSpace, tooltipWidth, tooltipHeightTotal, 1);
+                // Add the tile's ID to the tooltip
                 drawer.text("Tile " + this.ID, tooltipFont, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() + tooltipCursorSpace + tooltipTextSpace);
-                //Draw an identification label in that space
+                // Add the tile's base production to the tooltip
+                drawer.text("Base Production: [GREEN]" + this.FoodCount + "[], [RED]" + this.OreCount + "[], [GOLD]" + this.EnergyCount + "[]", tooltipFont2, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() + tooltipHeightLine1 + tooltipCursorSpace + 2*tooltipTextSpace);
+                // Calculate and add the tile's current production range to the tooltip if a roboticon is assigned...
+                if (this.roboticonStored != null) {
+                	drawer.text("Current Production: [GREEN]" + this.FoodCount*lvls[2] + "-" + this.FoodCount*lvls[2]*5 + "[], [RED]" + this.OreCount*lvls[0] + "-" + this.OreCount*lvls[0]*5 + "[], [GOLD]" + this.EnergyCount*lvls[1] + "-" + this.EnergyCount*lvls[1]*5 + "[]", tooltipFont2, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() + tooltipHeightLine1 + tooltipHeightLine2 + 2*tooltipCursorSpace + tooltipTextSpace);
+                // ...or give a 'no production' message if there is not.
+                } else {
+                	drawer.text("No production: [FIREBRICK]Missing roboticon[]", tooltipFont2, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() + tooltipHeightLine1 + tooltipHeightLine2 + 2*tooltipCursorSpace + tooltipTextSpace);
+                }
+            // Draw the same tooltip, but in the region to the bottom-left of the cursor if the cursor is near the top of the game's window
             } else {
-                drawer.borderedRectangle(tooltipFillColor, tooltipLineColor, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace, Gdx.input.getY() - tooltipHeight - tooltipCursorSpace, tooltipWidth, tooltipHeight, 1);
-                drawer.text("Tile " + this.ID, tooltipFont, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() - tooltipHeight - tooltipCursorSpace + tooltipTextSpace);
-                //Do the same thing, but in the region to the bottom-left of the cursor if the cursor is near the
-                //top of the game's window
+                drawer.borderedRectangle(tooltipFillColor, tooltipLineColor, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace, Gdx.input.getY() - tooltipHeightTotal - tooltipCursorSpace, tooltipWidth, tooltipHeightTotal, 1);
+                drawer.text("Tile " + this.ID, tooltipFont, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() - tooltipHeightTotal - tooltipCursorSpace + tooltipTextSpace);
+                drawer.text("Base Production: [GREEN]" + this.FoodCount + "[], [RED]" + this.OreCount + "[], [GOLD]" + this.EnergyCount + "[]", tooltipFont2, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() - 2*tooltipHeightLine2 - tooltipCursorSpace);
+                if (this.roboticonStored != null) {
+                	drawer.text("Current Production: [GREEN]" + this.FoodCount*lvls[2] + "-" + this.FoodCount*lvls[2]*5 + "[], [RED]" + this.OreCount*lvls[0] + "-" + this.OreCount*lvls[0]*5 + "[], [GOLD]" + this.EnergyCount*lvls[1] + "-" + this.EnergyCount*lvls[1]*5 + "[]", tooltipFont2, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() - tooltipHeightLine2 - tooltipCursorSpace);
+                } else {
+                    drawer.text("No production: [FIREBRICK]Missing roboticon[]", tooltipFont2, Gdx.input.getX() - tooltipWidth - tooltipCursorSpace + tooltipTextSpace, Gdx.input.getY() - tooltipHeightLine2 - tooltipCursorSpace);
+                }
             }
         }
     }
