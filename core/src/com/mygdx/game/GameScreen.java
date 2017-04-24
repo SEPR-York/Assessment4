@@ -1289,8 +1289,10 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
         addAnimation(playerWin);
     }
 
-    public void updatePlayerName() {
-        currentPlayerLabel.setText("Player " + engine.currentPlayer().getPlayerNumber());
+    public void updatePlayerName() 
+    {
+    	String currentPlayer = engine.currentPlayer().getName();
+        currentPlayerLabel.setText(currentPlayer);
         currentPlayerIcon.setDrawable(engine.currentPlayer().getCollege().getLogo().getDrawable());
     }
     

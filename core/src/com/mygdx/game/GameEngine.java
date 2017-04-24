@@ -204,7 +204,7 @@ public class GameEngine
     public void nextPhase() {
         timer.stop();
         nextPlayer();
-        System.out.println("Player " + currentPlayerID + " | Phase " + phase);
+        System.out.println(players[currentPlayerID].getName() + " | Phase " + phase);
 
         
         market.refreshButtonAvailability();
@@ -373,10 +373,11 @@ public class GameEngine
             }
             System.out.print("Move to phase " + phase + ", ");
         }
-        System.out.println("Change to player " + currentPlayerID);
-
+        System.out.println("Change to player " + players[currentPlayerID].getName());
+        
         // Find and draw the icon representing the "new" player's associated college
-        if (!isCurrentlyAiPlayer()){
+        if (!isCurrentlyAiPlayer())
+        {
 	        gameScreen.currentPlayerIcon().setDrawable(new TextureRegionDrawable(new TextureRegion(players[currentPlayerID].getCollege().getLogoTexture())));
 	        gameScreen.currentPlayerIcon().setSize(64, 64);
 	
