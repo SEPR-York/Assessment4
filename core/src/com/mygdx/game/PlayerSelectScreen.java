@@ -342,7 +342,8 @@ public class PlayerSelectScreen implements Screen {
     	players = new Player[length];
     	for(int i = 0; i < playerAmount; i++)
     	{
-    		String popUpText = "Player " + i+1;
+    		int j = i+1;
+    		String popUpText = "Player " + j;
     		String playername = JOptionPane.showInputDialog(null, popUpText + " enter your name", popUpText);
 
             if(playername == null || playername == "")   		// If the player click's cancel or doesn't enter a name

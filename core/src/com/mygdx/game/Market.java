@@ -44,7 +44,7 @@ public class Market extends Table {
     /**
      * Variable holding current Ore resource amount as an int, initialises at 0 as stated in the brief.
      */
-    private int OreStock = 0;
+    private int OreStock = 16;
     
     /**
      * Variable holding current Food resource amount as an int, initialises at 16 as stated in the brief.
@@ -1047,11 +1047,15 @@ public class Market extends Table {
      * @param Quantity   The amount of resources that Player wants to buy.
      * @param Player     A Player object.
      */
-    public Player buy(String Stock_Type, int Quantity, Player Player) throws Exception {
-        if ("ore".equals(Stock_Type)) {
-            if (Quantity <= OreStock) {
+    public Player buy(String Stock_Type, int Quantity, Player Player) throws Exception 
+    {
+        if ("ore".equals(Stock_Type)) 
+        {
+            if (Quantity <= OreStock) 
+            {
                 int OrePrice = OreBuyPrice * Quantity;
-                if (Player.getMoney() >= OrePrice) {
+                if (Player.getMoney() >= OrePrice) 
+                {
                     OreStock -= Quantity;
                     Player.setMoney(Player.getMoney() - OrePrice);
                     int playersOre = Player.getOreCount();
@@ -1061,13 +1065,19 @@ public class Market extends Table {
                     OreSellPrice = calculateNewCost(OreStock, "sell");
                     oreStockLabel.setText("" + getOreStock());
                     buyOre.setText("-" + getOreBuyPrice());
-                } else {
+                } 
+                else 
+                {
                     throw new Exception("Insufficient money");
                 }
-            } else {
+            } 
+            else 
+            {
                 throw new Exception("Insufficient resources");
             }
-        } else if ("food".equals(Stock_Type)) {
+        } 
+        else if ("food".equals(Stock_Type)) 
+        {
             if (Quantity <= FoodStock) {
                 int FoodPrice = FoodBuyPrice * Quantity;
                 if (Player.getMoney() >= FoodPrice) {
@@ -1127,8 +1137,6 @@ public class Market extends Table {
             throw new Exception("Wrong Stock_Type passed");
         }
         return Player;
-
-
     }
 
 
@@ -1253,27 +1261,39 @@ public class Market extends Table {
      * @return costofresources int value of the resource's new cost
      * @throws Exception Thrown if there's a wrong operator used with the function
      */
-    private int calculateNewCost(int Stock, String oper) throws Exception {
+    private int calculateNewCost(int Stock, String oper) throws Exception 
+    {
         double cost;
         int costOfResources;
-        if (Stock == 0 && oper.equals("buy")) {
+        if (Stock == 0 && oper.equals("buy")) 
+        {
             costOfResources = 0;
-        } else if (Stock == 0 && oper.equals("sell")) {
+        } 
+        else if (Stock == 0 && oper.equals("sell")) 
+        {
             costOfResources = 200;
 
-        } else if (oper.equals("buy")) {
+        } 
+        else if (oper.equals("buy")) 
+        {
             cost = 160 / Stock + 2;
             costOfResources = (int) Math.round(cost);
 
-        } else if (oper.equals("sell")) {
+        } 
+        else if (oper.equals("sell")) 
+        {
             cost = 160 / Stock;
             int costInt = (int) Math.round(cost);
             if (costInt < 1) {
                 costOfResources = 1;
-            } else {
+            } 
+            else 
+            {
                 costOfResources = costInt;
             }
-        } else {
+        } 
+        else 
+        {
             throw new Exception("Wrong operator");
         }
         return costOfResources;

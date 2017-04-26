@@ -16,7 +16,7 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
 		//GAME CONFIG
-		config.title = "Duck-Related Game";
+		config.title = "Gandhi-Inc. Assessment 4";
 		config.width = 1024;
 		config.height = 512;
 		config.vSyncEnabled = true;
