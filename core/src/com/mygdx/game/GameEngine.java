@@ -51,7 +51,7 @@ public class GameEngine
 
     /**
      * Holds the number of the phase that the game is currently in
-     * Varies between 1 and 5
+     * Varies between 1 and 6
      */
     private int phase;
 
@@ -132,7 +132,7 @@ public class GameEngine
         //Set up objects to hold player-data
         //Start the game such that player 1 makes the first move
 
-        //Start the game in the first phase (of 5, which recur until all tiles are claimed)
+        //Start the game in the first phase (of 6, which recur until all tiles are claimed)
 
         timer = new GameTimer(0, new TTFont(Gdx.files.internal("font/testfontbignoodle.ttf"), 120), Color.WHITE, new Runnable() {
             @Override
@@ -194,8 +194,9 @@ public class GameEngine
      * PHASE 1: Acquisition of Tiles
      * PHASE 2: Acquisition of Roboticons
      * PHASE 3: Placement of Roboticons
-     * PHASE 4: Production of Resources by Roboticons
-     * PHASE 5: Market Trading
+     * PHASE 4: Chancellor Game (50% chance)
+     * PHASE 5: Production of Resources by Roboticons
+     * PHASE 6: Market Trading
      */
 
     // Changed in Assessment 3: Refactored nextPhase() from giant if-else statement to switch statement.
@@ -215,7 +216,6 @@ public class GameEngine
             case 2:
                 timer.setTime(0, 30);
                 timer.start();
-
                 drawer.toggleButton(gameScreen.endTurnButton(), true, Color.WHITE);
                 break;
 
@@ -223,14 +223,20 @@ public class GameEngine
             	timer.setTime(0, 30);
                 timer.start();
                 break;
-
+                
             case 4:
+            	timer.setTime(0, 30);
+            	timer.start();
+            	chancellor();
+            	break;
+
+            case 5:
                 timer.setTime(0, 5);
                 timer.start();
                 produceResource();
                 break;
 
-            case 5:
+            case 6:
                 break;
         }
 
@@ -353,20 +359,17 @@ public class GameEngine
         currentPlayerID ++;
         if (currentPlayerID >= players.length) {
             currentPlayerID = 0;
+ 
             
-            if (phase == 3)
-            {
-            	chancellor();
-            }
-            
-            if (phase == 4) 
+            if (phase == 5) 
             {
                 checkEventDurations();
                 selectRandomEvent();
             }
 
             phase ++;
-            if (phase >= 6) {
+            if (phase >= 7) 
+            {
                 phase = 1;
             }
             System.out.print("Move to phase " + phase + ", ");
@@ -512,7 +515,7 @@ public class GameEngine
     }
 
     /**
-     * Return's the game's phase as a number between (or possibly one of) 1 and 5
+     * Return's the game's phase as a number between (or possibly one of) 1 and 6
      *
      * @return int The game's current phase
      */
