@@ -1048,10 +1048,14 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
                 break;
 
             case 4:
+            	description = "CHANCELLOR PHASE";
+            	break;
+            	
+            case 5:
                 description = "PRODUCTION";
                 break;
 
-            case 5:
+            case 6:
                 description = "MARKET OPEN";
                 break;
 
