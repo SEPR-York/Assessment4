@@ -27,7 +27,10 @@ public class RandomEventTests extends TesterFile {
     public void setup() {
         game = new Main();
         gameEngine = new GameEngine(game, gameScreen);
-        testPlayerScreen.initialisePlayers(gameEngine, 1, 1);
+        Player[] players = new Player[2];
+        players[0] = new Player(0, "TEST");
+        players[1] = new AiPlayer(1);
+        gameEngine.setPlayers(players);
     }
 
     @Test

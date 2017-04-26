@@ -370,6 +370,9 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
             	tooExpensiveOverlay.act(delta);
             	tooExpensiveOverlay.draw();
             }
+
+            for (Tile tile : engine.tiles())
+                chancellor(tile);
             
             
             //Draw the roboticon upgrade overlay to the screen if the "upgrade" button has been selected
@@ -1116,6 +1119,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
 			batch.begin();										// Start batching the file
 	        float x = tile.getX() + tile.getParent().getX();	// Find the x coordinate of the tile
 	        float y = tile.getY() + tile.getParent().getY();	// Find the y coordinate of the tile
+            System.out.println("Chancellor Tile X: " + (tile.getX() + tile.getParent().getX()) + "\t|\tTile Y: " + (tile.getY() + tile.getParent().getY()));
 	        batch.draw(chancellorTexture, (int) x, (int) y);	// Draw the chancellor on those coordinates
 	        batch.end();										// End the batching
 		}
