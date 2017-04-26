@@ -30,6 +30,8 @@ public class GameEngine
      */
     private Game game;
 
+    public Chancellor chancellorGame;
+
     /**
      * The game's engine only ever runs while the main in-game interface is showing, so it was designed to manipulate
      * elements (both visual and logical in nature) on that screen
@@ -231,6 +233,11 @@ public class GameEngine
             	break;
 
             case 5:
+                if (chancellorGame != null)
+                {
+                    chancellorGame.reset();
+                    chancellorGame = null;
+                }
                 timer.setTime(0, 5);
                 timer.start();
                 produceResource();
@@ -309,8 +316,8 @@ public class GameEngine
 
     private void chancellor()
     {
-        Chancellor chancellorGame = new Chancellor();
-    	chancellorGame.randomlyChooseTile(players[currentPlayerID], GameEngine.getInstance());
+        System.out.println("Entered Game!!!");
+        chancellorGame = new Chancellor(this);
     }
     
     // Added in Assessment 3: Added to select random events.

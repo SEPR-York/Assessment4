@@ -15,10 +15,70 @@ import javax.swing.JOptionPane;
  */
 public class Chancellor 
 {	
-	/**
+
+	GameEngine gameEngine;
+
+	public Chancellor(GameEngine engine)
+	{
+		gameEngine = engine;
+	}
+
+	float time = 30.0f;
+	float interval = 1.0f;
+	float currentTimeOnTile = 0.0f;
+
+	Tile currentTile = null;
+
+	private void changeTile()
+	{
+		Random rand1 = new Random();
+		int randomTile = rand1.nextInt(16);		// Choose a random tile (between 1-16)
+		Tile[] listOfTiles = gameEngine.getTiles();	// Define the tiles as "listOfTiles"
+		currentTile = listOfTiles[randomTile];	// Define "tile" as a random tile amongst the list
+		currentTimeOnTile = 0;
+		currentTile.showchancellorTexture();
+	}
+
+	private void removeFromTile()
+	{
+		if (currentTile != null)
+		{
+			currentTile.hidechancellorTexture();
+			currentTile = null;
+		}
+	}
+
+	public void update(float dTime)
+	{
+		if (time > 0)
+		{	
+			if (time == 30.0f)
+				changeTile();
+
+			currentTimeOnTile += dTime;
+			time -= dTime;
+
+			if ((currentTimeOnTile > (interval / 2)) && (currentTile != null))
+			{
+				removeFromTile();
+			}
+			else if (currentTimeOnTile > interval)
+			{
+				changeTile();
+			}
+		}
+	}
+
+	public void reset()
+	{
+		removeFromTile();
+	}
+
+/*
+	
 	 * isHit looks to see if the tile is clicked while the chancellor is on the tile
 	 * @return It will return a true or false value. True if tile is hit
-	 */
+	 *
 	public boolean isHit(Tile tile)
 	{
 		// Checks to see if the tile is clicked on
@@ -29,7 +89,7 @@ public class Chancellor
 	 * The Chancellor will appear on the tile selected for 500ms
 	 * @param tile
 	 * @throws InterruptedException 
-	 */
+	 *
 	public void appears(Tile tile, Player player, GameEngine engine) throws InterruptedException
 	{
 		System.out.println("appears (chancellor class)");
@@ -94,6 +154,6 @@ public class Chancellor
 			}
 		}
 		
-	}
+	}*/
 }
 

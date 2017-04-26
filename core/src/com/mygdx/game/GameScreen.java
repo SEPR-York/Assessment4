@@ -327,6 +327,15 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
             gameStage.draw();
             //Draw the stage onto the screen
 
+            if (engine.phase() == 4)
+            {
+                if (engine.chancellorGame != null){
+                    System.out.println("Entering Update");
+                    engine.chancellorGame.update(delta);}
+                else
+                    engine.timer().setTime(0, 0);
+            }
+
             // Draw owned tile's border
             for (Tile tile : engine.tiles()) 
             {
