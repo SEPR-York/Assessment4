@@ -41,11 +41,8 @@ public class Chancellor
 
 	private void removeFromTile()
 	{
-		if (currentTile != null)
-		{
-			currentTile.hidechancellorTexture();
-			currentTile = null;
-		}
+		currentTile.hidechancellorTexture();
+		currentTile = null;
 	}
 
 	public void update(float dTime)
@@ -71,7 +68,10 @@ public class Chancellor
 
 	public void reset()
 	{
-		removeFromTile();
+		if (currentTile != null)
+		{
+			removeFromTile();
+		}
 	}
 
 /*
