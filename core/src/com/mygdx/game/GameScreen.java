@@ -120,8 +120,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     /**
      * Button which can be clicked on to go to the mini game
      */
-
     private TextButton miniGameButton;
+    
     /**
      * Button which allows players to claim selected tiles
      */
@@ -758,7 +758,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      * The tiles on this grid take the form of invisible buttons that are directly laid over the map image at the
      * centre of this screen
      */
-    private void constructTileGrid(){
+    private void constructTileGrid()
+    {
         tileGrid = new Table();
         //Initialise tile-grid
 
@@ -1014,7 +1015,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      *
      * @param tile The tile to be described on the interface
      */
-    public void updateSelectedTileLabel(Tile tile) {
+    public void updateSelectedTileLabel(Tile tile) 
+    {
         selectedTileLabel.setText("TILE " + tile.getID());
     }
 
@@ -1024,7 +1026,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      *
      * @param description The phase description to be displayed by the same label
      */
-    public void updatePhaseLabel(String description) {
+    public void updatePhaseLabel(String description) 
+    {
         phaseLabel.setText("PHASE " + engine.phase() + "\n" + description);
     }
 

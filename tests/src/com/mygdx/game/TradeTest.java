@@ -1,3 +1,4 @@
+package com.mygdx.game;
 import static org.junit.Assert.*;
 
 import org.junit.Before;

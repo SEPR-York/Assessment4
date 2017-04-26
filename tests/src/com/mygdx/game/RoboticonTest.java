@@ -1,3 +1,4 @@
+package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.mygdx.game.Main;
 import com.mygdx.game.Player;

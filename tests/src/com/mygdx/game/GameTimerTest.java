@@ -1,3 +1,4 @@
+package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.mygdx.game.GameTimer;

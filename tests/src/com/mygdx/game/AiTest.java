@@ -1,3 +1,4 @@
+package com.mygdx.game;
 import com.mygdx.game.*;
 import org.junit.Before;
 import org.junit.Test;
