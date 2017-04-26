@@ -3,6 +3,8 @@ import com.mygdx.game.GameEngine;
 import com.mygdx.game.GameScreen;
 import com.mygdx.game.Market;
 import com.mygdx.game.Player;
+import com.mygdx.game.PlayerSelectScreen;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,11 +23,13 @@ public class MarketTest extends TesterFile{
     private GameScreen testScreen;
     private GameEngine testGameEngine;
     private Market testMarket;
+    private PlayerSelectScreen testPlayerScreen;
 
     @Before
-    public void setup() {
+    public void setup() 
+    {
         testGameEngine = new GameEngine(testGame,testScreen);
-        testGameEngine.initialisePlayers(0, 2);
+        testPlayerScreen.initialisePlayers(testGameEngine, 0, 2);
         testMarket = new Market(testGame,testGameEngine);
     }
 

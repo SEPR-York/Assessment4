@@ -19,13 +19,14 @@ public class RandomEventTests extends TesterFile {
     private Game game;
     private GameScreen gameScreen;
     private GameEngine gameEngine;
+    private PlayerSelectScreen testPlayerScreen;
 
 
     @Before
     public void setup() {
         game = new Main();
         gameEngine = new GameEngine(game, gameScreen);
-        gameEngine.initialisePlayers(1, 1);
+        testPlayerScreen.initialisePlayers(gameEngine, 1, 1);
     }
 
     @Test
