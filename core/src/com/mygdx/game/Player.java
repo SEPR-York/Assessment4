@@ -21,7 +21,7 @@ public class Player {
     /**
      * An integer storing the amount of ore the player owns.
      */
-    private int OreCount = 0;
+    private int OreCount = 5;
 
     /**
      * An integer storing the amount of food a player owns.

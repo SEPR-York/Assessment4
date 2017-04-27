@@ -227,7 +227,7 @@ public class GameEngine
                 break;
                 
             case 4:
-            	timer.setTime(0, 30);
+            	timer.setTime(0, 15);
             	timer.start();
             	chancellor();
             	break;
