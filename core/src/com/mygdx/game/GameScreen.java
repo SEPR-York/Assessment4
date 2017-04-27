@@ -330,7 +330,6 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
             if (engine.phase() == 4)
             {
                 if (engine.chancellorGame != null){
-                    System.out.println("Entering Update");
                     engine.chancellorGame.update(delta);}
                 else
                     engine.timer().setTime(0, 0);
@@ -1132,7 +1131,6 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
 			batch.begin();										// Start batching the file
 	        float x = tile.getX() + tile.getParent().getX();	// Find the x coordinate of the tile
 	        float y = tile.getY() + tile.getParent().getY();	// Find the y coordinate of the tile
-            System.out.println("Chancellor Tile X: " + (tile.getX() + tile.getParent().getX()) + "\t|\tTile Y: " + (tile.getY() + tile.getParent().getY()));
 	        batch.draw(chancellorTexture, (int) x, (int) y);	// Draw the chancellor on those coordinates
 	        batch.end();										// End the batching
 		}
