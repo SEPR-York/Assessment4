@@ -1,8 +1,6 @@
 package com.mygdx.game;
 
 import java.util.Random;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 /**
  * This class is the Chancellor mini game. It will make the chancellor appear on a random a random tile 
@@ -23,8 +21,13 @@ public class Chancellor
 		gameEngine = engine;
 	}
 
+<<<<<<< HEAD
 	float time = 30.0f;
 	public static final float INTERVAL = 1.0f;
+=======
+	float time = 16.0f;
+	float interval = 1.0f;
+>>>>>>> 7eb4cdc1e81d3c917ad8caa680b56039b396fddf
 	float currentTimeOnTile = 0.0f;
 
 	Tile currentTile = null;
@@ -52,7 +55,7 @@ public class Chancellor
 	{
 		if (time > 0)
 		{	
-			if (time == 30.0f)
+			if (time == 16.0f)
 				changeTile();
 
 			currentTimeOnTile += dTime;
@@ -74,6 +77,7 @@ public class Chancellor
 		for (Tile tile : gameEngine.getTiles())
 				tile.hidechancellorTexture();
 	}
+<<<<<<< HEAD
 
 	public float getTime()
 	{
@@ -90,5 +94,7 @@ public class Chancellor
 		return currentTile;
 	}
 
+=======
+>>>>>>> 7eb4cdc1e81d3c917ad8caa680b56039b396fddf
 }
 
