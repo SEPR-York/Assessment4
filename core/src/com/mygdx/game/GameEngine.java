@@ -235,6 +235,7 @@ public class GameEngine
             case 5:
                 if (chancellorGame != null)
                 {
+                    System.out.println("Ending Mini Game!!");
                     chancellorGame.reset();
                     chancellorGame = null;
                 }

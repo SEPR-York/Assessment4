@@ -68,10 +68,8 @@ public class Chancellor
 
 	public void reset()
 	{
-		if (currentTile != null)
-		{
-			removeFromTile();
-		}
+		for (Tile tile : gameEngine.getTiles())
+				tile.hidechancellorTexture();
 	}
 
 /*
