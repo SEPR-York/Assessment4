@@ -1322,7 +1322,7 @@ public class Market extends Table {
             drawer.toggleButton(buyFood, false, Color.GRAY);
             drawer.toggleButton(buyEnergy, false, Color.GRAY);
             //Disable all of the market's other functions in phase 2
-        } else if (engine.phase() == 5) {
+        } else if (engine.phase() == 6) {
             if (engine.currentPlayer().getMoney() >= OreBuyPrice && OreStock > 0) {
                 drawer.toggleButton(buyOre, true, Color.GREEN);
             } else {

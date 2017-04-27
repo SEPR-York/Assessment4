@@ -168,9 +168,16 @@ public class Tile extends Button {
 
         addListener(new ChangeListener() {
             @Override
-            public void changed(ChangeEvent event, Actor actor) {
+            public void changed(ChangeEvent event, Actor actor) 
+            {
                 runnable.run();
+                if(chancellorIsVisible() == true)
+                {
+                	System.out.println("Chancellor is clicked");
+                }
             }
+            
+            
         });
         //Set up the tile to run the provided Runnable function when it's interacted with
 
@@ -476,12 +483,13 @@ public class Tile extends Button {
     public void showchancellorTexture() 
     {
         chancellorTextureVisible = true;
-        System.out.println("Tile class visible set to - " + chancellorTextureVisible);
     }
 
+    /**
+     * Removes the chancellor from the tile
+     */
     public void hidechancellorTexture() 
     {
         chancellorTextureVisible = false;
-        System.out.println("Tile class visible set to - " + chancellorTextureVisible);
     }
 }
