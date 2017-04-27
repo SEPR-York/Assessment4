@@ -21,13 +21,9 @@ public class Chancellor
 		gameEngine = engine;
 	}
 
-<<<<<<< HEAD
-	float time = 30.0f;
-	public static final float INTERVAL = 1.0f;
-=======
 	public static final float INTERVAL = 1.0f;
 	float time = 16.0f;
->>>>>>> origin/master
+	
 	float currentTimeOnTile = 0.0f;
 
 	Tile currentTile = null;
@@ -77,10 +73,7 @@ public class Chancellor
 		for (Tile tile : gameEngine.getTiles())
 				tile.hidechancellorTexture();
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 	public float getTime()
 	{
 		return time;
