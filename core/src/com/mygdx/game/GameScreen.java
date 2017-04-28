@@ -1039,7 +1039,15 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      */
     public void updatePhaseLabel(String description) 
     {
-        phaseLabel.setText("PHASE " + engine.phase() + "\n" + description);
+        if(engine.phase() >= 4)
+        {
+        	int phaseNumber = engine.phase() - 1;
+        	phaseLabel.setText("PHASE " + phaseNumber + "\n" + description);
+        }
+        else
+        {
+        	phaseLabel.setText("PHASE " + engine.phase() + "\n" + description);
+        }
     }
 
     public void updatePhaseLabel () {
@@ -1059,7 +1067,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
                 break;
 
             case 4:
-            	description = "CHANCELLOR PHASE";
+            	description = "CHANCELLOR";
             	break;
             	
             case 5:

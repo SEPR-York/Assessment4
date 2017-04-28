@@ -9,6 +9,9 @@ import com.badlogic.gdx.utils.Array;
 
 import java.util.*;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 /**
  * @author Gandhi-Inc.
  * @version Assessment 4
@@ -202,14 +205,16 @@ public class GameEngine
      */
 
     // Changed in Assessment 3: Refactored nextPhase() from giant if-else statement to switch statement.
-    public void nextPhase() {
+    public void nextPhase() 
+    {
         timer.stop();
         nextPlayer();
         System.out.println(players[currentPlayerID].getName() + " | Phase " + phase);
 
         
         market.refreshButtonAvailability();
-        switch (phase) {
+        switch (phase) 
+        {
             case 1:
 			drawer.toggleButton(gameScreen.endTurnButton(), false, Color.GRAY);
                 market.produceRoboticon();
@@ -225,30 +230,47 @@ public class GameEngine
             	timer.setTime(0, 30);
                 timer.start();
                 break;
-                
+             
+            // CHANCELLOR PHASE (NEW ASSESSMENT 4)    
             case 4:
-            	timer.setTime(0, 15);
-            	timer.start();
-            	chancellor();
-            	break;
+            	Random rand0 = new Random(); 					// Random to determine if chancellor will appear this round
+            	int random = rand0.nextInt(2);					// Set the int called random to either 1 or 2 (50% chance)
+            	if (random == 1)								// If the random was 1
+                {
+            		// Opens up a JOptionPane to inform the player that the mini game is about to take place
+    				JOptionPane chancellorOptionPane = new JOptionPane("You need to catch the Chancellor! If you manage to catch him there is a prize!");
+    	        	JDialog chancellorDialog = chancellorOptionPane.createDialog("Catch the Chancellor!");
+    	        	chancellorDialog.setAlwaysOnTop(true);		// Make sure that it appears on top and is visible
+    	        	chancellorDialog.setVisible(true);			// Set the dialog box to visible
+            		timer.setTime(0, 15);						// Sets the timer to 15 seconds
+                	timer.start();								// Starts the timer	
+                	chancellor();								// Calls the chancellor method
+                }
+            	else											// Else
+            	{
+            		timer.setTime(0, 0);						// Set the timer to 0
+                	timer.start();								// Start the timer
+                	break;										// Break out of the phase
+            	}
 
             case 5:
-                if (chancellorGame != null)
+                if (chancellorGame != null)						// If the chancellor was playing
                 {
-                    System.out.println("Ending Mini Game!!");
-                    chancellorGame.reset();
-                    chancellorGame = null;
+                    System.out.println("Ending Mini Game!!");	// Print that the game is now over
+                    chancellorGame.reset();						// Reset the game (remove from all tiles)
+                    chancellorGame = null;						// Set the game to null
                 }
-                timer.setTime(0, 5);
-                timer.start();
-                produceResource();
+                timer.setTime(0, 5);							// Set the timer to 5 seconds
+                timer.start();									// Start the timer
+                produceResource();								// Call the produce resources
                 break;
 
             case 6:
                 break;
         }
 
-        if(checkGameEnd()){
+        if(checkGameEnd())
+        {
             System.out.println("Someone won");
             gameScreen.showPlayerWin(getWinner());
         }
@@ -259,14 +281,18 @@ public class GameEngine
         market.refreshAuction();
 
         //If the upgrade overlay is open, close it when the next phase begins
-        if (gameScreen.getUpgradeOverlayVisible()) {
+        if (gameScreen.getUpgradeOverlayVisible()) 
+        {
             gameScreen.closeUpgradeOverlay();
         }
 
-        if (isCurrentlyAiPlayer()) {
+        if (isCurrentlyAiPlayer()) 
+        {
             AiPlayer aiPlayer = (AiPlayer)currentPlayer();
             aiPlayer.performPhase(this, gameScreen);
-        } else {
+        } 
+        else 
+        {
             testTrade();
         }
     }
