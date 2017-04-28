@@ -399,7 +399,7 @@ public class GameEngine
             }
 
             phase ++;
-            if (phase >= 7) 
+            if (phase >= 6) 
             {
                 phase = 1;
             }
