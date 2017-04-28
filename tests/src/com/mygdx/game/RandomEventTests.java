@@ -77,7 +77,7 @@ public class RandomEventTests extends TesterFile {
 
     @Test
     public void testRoboticonMalfunctionsSuccessfully() throws Exception {
-        Tile testTile = new Tile(game, 0,0,0,0, true, new Runnable() {
+        Tile testTile = new Tile(game, gameEngine, 0,0,0,0, true, new Runnable() {
             @Override
             public void run() {
             }
@@ -98,7 +98,7 @@ public class RandomEventTests extends TesterFile {
 
     @Test
     public void testRoboticonRevertsAfterMalfunction() {
-        Tile testTile = new Tile(game, 0,0,0,0, true, new Runnable() {
+        Tile testTile = new Tile(game, gameEngine, 0,0,0,0, true, new Runnable() {
             @Override
             public void run() {
             }

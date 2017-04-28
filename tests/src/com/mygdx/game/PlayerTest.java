@@ -20,7 +20,8 @@ public class PlayerTest extends TesterFile {
 
     private Game game = new Main();
     private Player TestPlayer = new Player(1, "player1");
-    private Tile TestTile = new Tile(game, 0,0,0,0, true, new Runnable() {
+    private GameEngine engine = new GameEngine(game, null);
+    private Tile TestTile = new Tile(game, engine, 0,0,0,0, true, new Runnable() {
         @Override
         public void run() {
 

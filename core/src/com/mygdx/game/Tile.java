@@ -1,5 +1,8 @@
 package com.mygdx.game;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -118,7 +121,7 @@ public class Tile extends Button {
      * @param landmark    A boolean to signify if the tile is to be a landmark or not
      * @param runnable    An object encapsulating a method that can be executed when the tile is clicked on
      */
-    public Tile(Game game, int ID, int EnergyCount, int OreCount, int FoodCount, boolean landmark, final Runnable runnable) {
+    public Tile(Game game, final GameEngine engine, int ID, int EnergyCount, int OreCount, int FoodCount, boolean landmark, final Runnable runnable) {
         super(new ButtonStyle());
         //Execute the constructor for the class' parent Button class using default visual parameters
 
@@ -174,6 +177,15 @@ public class Tile extends Button {
                 if(chancellorIsVisible() == true)
                 {
                 	System.out.println("Chancellor is clicked");
+                	GameEngine.players[engine.currentPlayerID].setMoney(GameEngine.players[engine.currentPlayerID].getMoney() + 50);
+                	
+   	
+                	// Opens up a JOptionPane to inform the player that the mini game is about to take place
+    				JOptionPane chancellorOptionPane = new JOptionPane("You caught the chancellor! You have just won 50 money");
+    	        	JDialog chancellorDialog = chancellorOptionPane.createDialog("You caught the chancellor!");
+    	        	chancellorDialog.setAlwaysOnTop(true);		// Make sure that it appears on top and is visible
+    	        	chancellorDialog.setVisible(true);			// Set the dialog box to visible
+    	        	
                 }
             }
             

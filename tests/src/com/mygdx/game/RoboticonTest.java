@@ -19,8 +19,9 @@ import static org.junit.Assert.assertTrue;
 public class RoboticonTest extends TesterFile {
 
     private Game game = new Main();
+    private GameEngine engine = new GameEngine(game, null);
     private Player TestPlayer = new Player(0, "player1");
-    private Tile TestTile = new Tile(game, 0,0, 0, 0, true, new Runnable() {
+    private Tile TestTile = new Tile(game, engine, 0,0, 0, 0, true, new Runnable() {
         @Override
         public void run() {
 
