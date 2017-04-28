@@ -229,26 +229,16 @@ public class GameEngine
                 break;
              
             // CHANCELLOR PHASE (NEW ASSESSMENT 4)    
-            case 4:
-            	Random rand0 = new Random(); 					// Random to determine if chancellor will appear this round
-            	int random = rand0.nextInt(2);					// Set the int called random to either 1 or 2 (50% chance)
-            	if (random == 1)								// If the random was 1
-                {
-//            		// Opens up a JOptionPane to inform the player that the mini game is about to take place
-//    				JOptionPane chancellorOptionPane = new JOptionPane("You need to catch the Chancellor! If you manage to catch him there is a prize!");
-//    	        	JDialog chancellorDialog = chancellorOptionPane.createDialog("Catch the Chancellor!");
-//    	        	chancellorDialog.setAlwaysOnTop(true);		// Make sure that it appears on top and is visible
-//    	        	chancellorDialog.setVisible(true);			// Set the dialog box to visible
-            		timer.setTime(0, 15);						// Sets the timer to 15 seconds
-                	timer.start();								// Starts the timer	
-                	chancellor();								// Calls the chancellor method
-                }
-            	else											// Else
-            	{
-            		timer.setTime(0, 0);						// Set the timer to 0
-                	timer.start();								// Start the timer
-                	break;										// Break out of the phase
-            	}
+            case 4:           	
+//            	// Opens up a JOptionPane to inform the player that the mini game is about to take place
+//    			JOptionPane chancellorOptionPane = new JOptionPane("You need to catch the Chancellor! If you manage to catch him there is a prize!");
+//    	       	JDialog chancellorDialog = chancellorOptionPane.createDialog("Catch the Chancellor!");
+//    	      	chancellorDialog.setAlwaysOnTop(true);		// Make sure that it appears on top and is visible
+//    	       	chancellorDialog.setVisible(true);			// Set the dialog box to visible
+           		timer.setTime(0, 15);						// Sets the timer to 15 seconds
+               	timer.start();								// Starts the timer	
+               	chancellor();								// Calls the chancellor method    
+               	break;										// Break out of the phase
 
             case 5:
                 if (chancellorGame != null)						// If the chancellor was playing
