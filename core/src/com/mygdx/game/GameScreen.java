@@ -219,6 +219,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     private int height;
     private int width;
     private Label currentPlayerLabel;
+    private Label currentPlayerMainLabel;
     private boolean drawRoboticonIcon;
     private Tile selectedTile;
     private Table tableRight;
@@ -650,7 +651,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
 
         gameFont.setSize(36);
         String currentPlayer = engine.currentPlayer().getName();
-        drawer.addTableRow(tableLeft, new Label(currentPlayer, new Label.LabelStyle(gameFont.font(), Color.BLACK)), 0, 0, 10, 0, 2);
+        currentPlayerMainLabel = new Label(currentPlayer, new Label.LabelStyle(gameFont.font(), Color.BLACK));
+        drawer.addTableRow(tableLeft, currentPlayerMainLabel, 0, 0, 10, 0, 2);
         //Window-dressing: adds "CURRENT PLAYER" label
 
 
@@ -1206,7 +1208,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
                 //This will only happen if the game is in phase 3
             }
         } else {
-            // tile.getX()
+            // tile.getX()updatePlayerName
 
             selectedTileOwnerIcon.setVisible(false);
             selectedTileRoboticonIcon.setVisible(false);
@@ -1318,6 +1320,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     public void updatePlayerName() 
     {
     	String currentPlayer = engine.currentPlayer().getName();
+        System.out.println(engine.currentPlayer().getName());
+        currentPlayerMainLabel.setText(currentPlayer);
         currentPlayerLabel.setText(currentPlayer);
         currentPlayerIcon.setDrawable(engine.currentPlayer().getCollege().getLogo().getDrawable());
     }

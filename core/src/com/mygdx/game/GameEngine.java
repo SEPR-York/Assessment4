@@ -396,6 +396,7 @@ public class GameEngine
             System.out.print("Move to phase " + phase + ", ");
         }
         System.out.println("Change to player " + players[currentPlayerID].getName());
+        gameScreen.updatePlayerName();
         
         // Find and draw the icon representing the "new" player's associated college
         if (!isCurrentlyAiPlayer())
@@ -406,8 +407,7 @@ public class GameEngine
 	        // Display the "new" player's inventory on-screen
 	        gameScreen.updateInventoryLabels();
 	
-	        gameScreen.updatePlayerName();
-        }
+	    }
     }
 
     /**
