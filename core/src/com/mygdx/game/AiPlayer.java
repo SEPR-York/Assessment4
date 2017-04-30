@@ -95,9 +95,11 @@ public class AiPlayer extends Player {
             case 4:
                 engine.nextPhase();
                 break;
-
-            // Market
             case 5:
+                engine.nextPhase();
+                break;
+            // Market
+            case 6:
                 while(getMoney() < market.getRoboticonBuyPrice() + 20) {
                     try {
                         if (getOreCount() > 0) {
