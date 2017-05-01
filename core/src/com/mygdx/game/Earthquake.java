@@ -25,7 +25,7 @@ public class Earthquake extends RandomEvent {
 
     /**
      * A method which returns the tiles chosen to be damaged by the earthquake.
-     * @return: An ArrayList<Tile> containing tiles to be damaged.
+     * @return an array list of Tiles containing tiles to be damaged.
      */
     public ArrayList<Tile> getTilesDamaged() {
         return this.tilesDamaged;
@@ -42,7 +42,7 @@ public class Earthquake extends RandomEvent {
     /**
      * Overridden eventEffect() method initially found in the RandomEvent abstract class.
      * @param doOrUndo: boolean determining whether to cause the event effect, or
-     *                reverse it. True -> Cause, False -> Reverse.
+     *                reverse it. True - Cause, False - Reverse.
      */
     public void eventEffect(boolean doOrUndo) {
         // Divides production on each tile by damage value
@@ -62,7 +62,7 @@ public class Earthquake extends RandomEvent {
     /**
      * Overridden eventMessage() method initially found in the RandomEvent abstract class.
      * @param doOrUndo: boolean determining whether to cause the event effect, or
-     *                reverse it. True -> Cause, False -> Reverse.
+     *                reverse it. True - Cause, False - Reverse.
      * @return: A String containing the message to be displayed.
      */
     public String eventMessage(boolean doOrUndo) {
@@ -81,7 +81,7 @@ public class Earthquake extends RandomEvent {
 
     /**
      * A method which chooses the tiles to be damaged by the earthquake.
-     * @return: An ArrayList<Tile> containing the affected tiles.
+     * @return: An array list of tiles containing the affected tiles.
      */
     private ArrayList<Tile> chooseAffectedTiles() {
 
@@ -104,9 +104,9 @@ public class Earthquake extends RandomEvent {
     }
 
     /**
-     * A method which returns an integer i where x <= i < limit.
-     * @param limit
-     * @param x
+     * A method which returns an integer i where x is smaller or equal to i which is smaller than the limit.
+     * @param limit sets the limit
+     * @param x which increments the number generated
      * @return: Integer i
      */
     private int getNumberGreaterThanX(int limit, int x) {
@@ -119,7 +119,7 @@ public class Earthquake extends RandomEvent {
 
     /**
      * Returns a string representation of an Earthquake instance.
-     * @return: The string "<Earthquake: Duration = x> where x = duration."
+     * @return: The string "Earthquake: Duration = x where x = duration."
      */
     public String toString() {
         return "<Earthquake: Duration = " + this.duration + ">";

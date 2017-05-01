@@ -246,7 +246,7 @@ public class GameTimer extends com.badlogic.gdx.scenes.scene2d.ui.Label {
     /**
      * Returns the number of minutes currently clocked on the timer
      *
-     * Changed in Assessment 3 (Integer -> int)
+     * Changed in Assessment 3 (Integer - int)
      *
      * @return int The number of minutes left on the clock
      */
@@ -257,7 +257,7 @@ public class GameTimer extends com.badlogic.gdx.scenes.scene2d.ui.Label {
     /**
      * Returns the number of seconds currently clocked on the timer (within the current minute)
      *
-     * Changed in assessment 3 (Integer -> int)
+     * Changed in assessment 3 (Integer - int)
      *
      * @return int The number of seconds left on the clock during the current minute
      */

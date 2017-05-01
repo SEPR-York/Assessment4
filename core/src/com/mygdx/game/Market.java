@@ -1032,20 +1032,21 @@ public class Market extends Table {
         buyEnergy.setText("" + getEnergyBuyPrice());
     }
 
-
     /**
      * A method that allows buying resources from the market.
-     * <p>
+     * 
      * Depending on what type of resources is passed ("ore", "food" or "energy") method checks whether it is sufficient
      * amount of that resource in market stock. Then it is checked whether does Player has enough money to buy required
      * amount. Market stock value (e.g. OreStock) is reduced by the quantity that has been bought(Quantity). Players money
      * (playersMoney) are reduced by the amount that was spent on the purchase. The value of Players resource stock is
      * updated. New selling and buying prices, for that chosen resource, are calculated (calculateNewCost()).
-     * </p>
+     * 
      *
      * @param Stock_Type Type of resources (ore, energy or food) that is stored in the market.
      * @param Quantity   The amount of resources that Player wants to buy.
      * @param Player     A Player object.
+     * @return the amount a player has bought
+     * @throws Exception for insufficient resources 
      */
     public Player buy(String Stock_Type, int Quantity, Player Player) throws Exception 
     {
@@ -1153,6 +1154,8 @@ public class Market extends Table {
      * @param Stock_Type Type of resources (ore, energy or food) that is stored in the market.
      * @param Quantity   The amount of resources that Player wants to buy.
      * @param Player     A Player object.
+     * @return the sold amount
+     * @throws Exception when the seller has insufficient resources to sell 
      */
     public Player sell(String Stock_Type, int Quantity, Player Player) throws Exception {
         int playersMoney = Player.getMoney();

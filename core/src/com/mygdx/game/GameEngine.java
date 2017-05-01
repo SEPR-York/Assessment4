@@ -10,6 +10,7 @@ import com.badlogic.gdx.utils.Array;
 import java.util.*;
 
 /**
+ * GameEngine class is what is used to run the back-end of the game. It has all the main methods and 
  * @author Gandhi-Inc.
  * @version Assessment 4
  *          An executable version of the game can be found at: http://gandhi-inc.me/downloads/assessment4.jar
