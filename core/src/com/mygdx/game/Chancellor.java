@@ -14,15 +14,15 @@ import java.util.Random;
 public class Chancellor 
 {	
 
-	GameEngine gameEngine;
+	GameEngine gameEngine;									// Create a gameEngine object
 
 	/**
 	 * The method that creates the object chancellor
 	 * @param engine uses the game engine
 	 */
-	public Chancellor(GameEngine engine)
+	public Chancellor(GameEngine engine)					
 	{
-		gameEngine = engine;
+		gameEngine = engine;								// The engine is set to the gameEngine
 	}
 
 	public static final float INTERVAL = 1.0f;				// Define the interval that the chancellor will appear on a new tile
@@ -96,29 +96,32 @@ public class Chancellor
 
 	/**
 	 * Getter for time
+	 * Used for testing the class
 	 * @return the time
 	 */
 	public float getTime()
 	{
-		return time;		
+		return time;										// Returns the time
 	} 
 
 	/**
 	 * Getter for the current time on tile
+	 * Used for testing class
 	 * @return the current time spent on the tile
 	 */
 	public float getCurrentTimeOnTile()
 	{
-		return currentTimeOnTile;
+		return currentTimeOnTile;							// Returns the current time spent on the tile
 	}
 
 	/**
 	 * Getter for the current tile
+	 * Used for testing class
 	 * @return the current tile the chancellor is on
 	 */
 	public Tile getCurrentTile()
 	{
-		return currentTile;
+		return currentTile;									// Returns the current tile
 	}
 
 }
