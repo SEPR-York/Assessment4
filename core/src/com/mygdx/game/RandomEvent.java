@@ -29,7 +29,7 @@ public abstract class RandomEvent {
      * Abstract method which implements the back-end effects of a random event.
      * Required to be implemented by all sub-classes
      * @param doOrUndo: boolean determining whether to cause the event effect, or
-     *                reverse it. True -> Cause, False -> Reverse.
+     *                reverse it. True = Cause, False = Reverse.
      */
     public abstract void eventEffect(boolean doOrUndo);
 
@@ -38,7 +38,7 @@ public abstract class RandomEvent {
      * overlay during gameplay.
      * Required to be implemented by all sub-classes.
      * @param doOrUndo: boolean determining whether to cause the event effect, or
-     *                reverse it. True -> Cause, False -> Reverse.
+     *                reverse it. True = Cause, False = Reverse.
      * @return: A String containing the message to be displayed.
      */
     public abstract String eventMessage(boolean doOrUndo);
@@ -59,7 +59,7 @@ public abstract class RandomEvent {
      * in the GUI. This method should be used to trigger a random event, rather than calling
      * eventEffect() or eventMessage() directly.
      * @param doOrUndo: boolean determining whether to cause the event effect, or
-     *                reverse it. True -> Cause, False -> Reverse.
+     *                reverse it. True = Cause, False = Reverse.
      */
     public void eventHappen(boolean doOrUndo) {
         this.eventEffect(doOrUndo);
