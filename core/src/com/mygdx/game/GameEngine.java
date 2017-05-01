@@ -259,7 +259,7 @@ public class GameEngine
         if(checkGameEnd())
         {
             System.out.println("Someone won");
-            gameScreen.showPlayerWin(getWinner());
+            gameScreen.showPlayerWin(players[getWinner()]);
         }
 
         gameScreen.updatePhaseLabel();

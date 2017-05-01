@@ -219,6 +219,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     private int height;
     private int width;
     private Label currentPlayerLabel;
+    // Large player name label of the currently active player
     private Label currentPlayerMainLabel;
     private boolean drawRoboticonIcon;
     private Tile selectedTile;
@@ -1312,8 +1313,8 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
     }
 
   //all below is new for assessment 3
-    public void showPlayerWin(int playerId){
-        playerWin = new AnimationPlayerWin(playerId + 1);
+    public void showPlayerWin(Player player){
+        playerWin = new AnimationPlayerWin(player.getName());
         addAnimation(playerWin);
     }
 

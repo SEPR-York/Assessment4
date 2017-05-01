@@ -6,12 +6,12 @@ import com.badlogic.gdx.utils.Align;
 import io.github.teamfractal.screens.AbstractAnimationScreen;
 
 public class AnimationPlayerWin implements IAnimation {
-    private final int playerId;
+    private final String playerName;
     private IAnimationFinish callback;
     private static BitmapFont font = new BitmapFont();
 
-    public AnimationPlayerWin(int playerId) {
-        this.playerId = playerId;
+    public AnimationPlayerWin(String playerName) {
+        this.playerName = playerName;
     }
 
     /**
@@ -26,7 +26,7 @@ public class AnimationPlayerWin implements IAnimation {
         AbstractAnimationScreen.Size size = screen.getScreenSize();
         batch.begin();
         font.setColor(1,1,1, 1);
-        font.draw(batch,  "PLAYER " + playerId + " WINS",
+        font.draw(batch,  "PLAYER " + playerName + " WINS",
                 size.Width/2, size.Height/2 + font.getLineHeight()/2,
                 0, Align.center, false);
         batch.end();
