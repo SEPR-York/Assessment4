@@ -49,7 +49,7 @@ public class Malfunction extends RandomEvent {
     /**
      * Overridden eventEffect() method initially found in the RandomEvent class.
      * @param doOrUndo: boolean determining whether to cause the event effect, or
-     *                reverse it. True -> Cause, False -> Reverse.
+     *                reverse it. True = Cause, False = Reverse.
      */
     public void eventEffect(boolean doOrUndo) {
         if (doOrUndo) {
@@ -67,7 +67,7 @@ public class Malfunction extends RandomEvent {
     /**
      * Overridden eventMessage() method initially found in the RandomEvent class.
      * @param doOrUndo: boolean determining whether to cause the event effect, or
-     *                reverse it. True -> Cause, False -> Reverse.
+     *                reverse it. True = Cause, False = Reverse.
      * @return: A String containing the event message.
      */
     public String eventMessage(boolean doOrUndo) {
@@ -97,7 +97,7 @@ public class Malfunction extends RandomEvent {
 
     /**
      * Returns a string representation of a Malfunction random event.
-     * @return: The string <Malfunction: Duration = x> where x = duration.
+     * @return: The string Malfunction: Duration = x where x = duration.
      */
     public String toString() {
         return "<Malfunction: Duration = " + this.duration + ">";

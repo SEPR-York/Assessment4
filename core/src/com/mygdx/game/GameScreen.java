@@ -241,6 +241,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      * The game-screen's initial constructor
      *
      * @param game Variable storing the game's state for rendering purposes
+     * @param vsPlayer unused var left over from other team
      */
     public GameScreen(Game game, boolean vsPlayer) {
         this.game = game;
@@ -313,7 +314,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      * Renders all visual elements (set up in the [show()] subroutine and all of its subsiduaries) to the window
      * This is called to prepare each and every frame that the game deploys
      *
-     * @param delta
+     * @param delta Change of time since previous render
      */
     @Override
     public void render(float delta) {
@@ -1154,6 +1155,7 @@ public class GameScreen extends AbstractAnimationScreen implements Screen {
      * in-game interface
      *
      * @param tile The tile being clicked on
+     * @param showAnimation boolean to decide on to show the select tile animation
      */
     public void selectTile(Tile tile, boolean showAnimation) {
         selectedTile = tile;

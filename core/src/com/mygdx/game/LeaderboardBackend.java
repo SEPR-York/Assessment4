@@ -23,7 +23,7 @@ public class LeaderboardBackend{
 	/**
 	* Returns the array list of the leaderboard scores
 	*
-	* @return ArrayList<String[]> it returns an array list of string arrays where each string array is 2 items big with index 0 being the name, and index 1 being the score
+	* @return ArrayList it returns an array list of string arrays where each string array is 2 items big with index 0 being the name, and index 1 being the score
 	*/
 	public ArrayList<String[]> getListofScores(){
 		return ArrayOfPeopleWithScores;
@@ -123,6 +123,8 @@ public class LeaderboardBackend{
 	 * This function will return the best three players that have played the game so that they are able to be displayed
 	 * <p>
 	 * This method also contains error handling for if the "GameSave.txt" file contains less than three players
+	 *
+	 * @param a Array of all the player left in the arrat list
 	 *
 	 * @return ArrayOfBestPlayers - This is an array of size three that contains the best three players
 	 */

@@ -78,6 +78,7 @@ public class LeaderboardFrontend implements Screen {
 
     /**
      * imports the current game state
+     * @param game Used to pass the libgdx game reference
      */
 
     public LeaderboardFrontend(Game game) {
@@ -152,7 +153,7 @@ public class LeaderboardFrontend implements Screen {
      * Renders all visual elements (set up in the [show()] subroutine and all of its subsiduaries) to the window
      * This is called to prepare each and every frame that the screen deploys
      *
-     * @param delta
+     * @param delta Time since previous render
      */
     @Override
     public void render(float delta) {
